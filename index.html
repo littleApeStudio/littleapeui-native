@@ -40,7 +40,7 @@
         canvas.width = 100
         canvas.height = 36
         var ctx = canvas.getContext("2d");
-        ctx.fillStyle = color(Math.random())
+        ctx.fillStyle = color(0.2)
         ctx.fillRect(0, 0, 100, 36);
         ctx.fillStyle = color();
         ctx.font = "18px 微软雅黑"
@@ -58,7 +58,7 @@
         ctx.fillText("=", 60, 27)
         ctx.fillStyle = color();
         ctx.fillText("?", 80, 27)
-        ctx.strokeStyle  = color();
+        ctx.strokeStyle = color();
         ctx.lineWidth = Math.round(Math.random() * 2);
         ctx.moveTo(5, Math.round(Math.random() * 28) + 3);
         ctx.lineTo(95, Math.round(Math.random() * 28) + 3);

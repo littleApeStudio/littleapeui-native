@@ -44,7 +44,7 @@ body {
 }
 
 .input>input:focus {
-    border: 2px solid #238de4;
+    border: 2px solid #1495ff;
 }
 
 .input>.label {
