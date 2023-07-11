@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="./css/basis.css">
+</head>
+
+<body>
+    <!-- form表单 -->
+    <form class="form" style="width: 400px;" method="post" onsubmit="return form()">
+        <div class="input">
+            <div class="label">账号</div>
+            <input id="uname" type="text" placeholder="请输入账号">
+        </div>
+        <div class="input">
+            <div class="label">密码</div>
+            <input id="pword" type="password" placeholder="请输入密码">
+        </div>
+        <div class="input input-code">
+            <div class="label">验证码</div>
+            <input id="code" type="text" placeholder="请输入验证码">
+            <div class="code"></div>
+        </div>
+        <input class="button" type="submit" value="登录">
+    </form>
+</body>
+
+<script>
+    // message 弹窗集合
+    let messages = []
+    // 生成 message / 删除 message
+    function message() {
+        let duration = 3000
+        let type = "success"
+        let title = ""
+        if (arguments.length == 1) {
+            if (typeof arguments[0] == 'object') {
+                duration = arguments[0].duration ? arguments[0].duration : duration
+                type = arguments[0].type ? arguments[0].type : type
+                title = arguments[0].title ? arguments[0].title : title
+            } else {
+                title = arguments[0]
+            }
+        } else {
+            title = arguments[0] ? arguments[0] : title
+            type = arguments[1] ? arguments[1] : type
+            duration = arguments[2] ? arguments[2] : duration
+        }
+        let messageBox = document.getElementById("messageBox")
+        if (!messageBox) {
+            messageBox = document.createElement("div")
+            messageBox.classList.add("pop-message-box")
+            messageBox.id = "messageBox"
+            document.body.appendChild(messageBox)
+        }
+        let message = document.createElement("div")
+        message.classList.add("pop-message")
+        message.classList.add("message-" + type)
+        message.innerHTML = title
+        messageBox.appendChild(message)
+        messages.push(message)
+        setTimeout(() => {
+            message.classList.add("message-enter")
+            setTimeout(() => {
+                message.classList.remove("message-enter")
+                setTimeout(() => {
+                    messageBox.removeChild(message)
+                    messages.splice(0, 1)
+                    if (messages.length == 0) {
+                        document.body.removeChild(messageBox)
+                    }
+                }, 600);
+            }, duration);
+        }, 100);
+    }
+    // 获取 input 的值
+    function getValue(e) {
+        return document.getElementById(e).value
+    }
+    /* 表单验证 */
+    function form() {
+        let uname = getValue("uname")
+        let pword = getValue("pword")
+        let code = getValue("code")
+        if (uname.length < 5) {
+            // 弹窗提示
+            message({
+                title: "账号至少五位数",
+                type: "warning"
+            })
+            return false
+        } else if (pword.length < 5) {
+            // 弹窗提示
+            message({
+                title: "密码至少五位数",
+                type: "warning"
+            })
+            return false
+        } else if (code.length != 6) {
+            // 弹窗提示
+            message({
+                title: "验证码错误",
+                type: "warning"
+            })
+            return false
+        } else {
+            return true
+        }
+    }
+</script>
+
+<style>
+</style>
+
+</html>
