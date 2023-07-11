@@ -28,55 +28,9 @@
         <input class="button" type="submit" value="登录">
     </form>
 </body>
-
+<link rel="stylesheet" href="./components/index.css">
+<script src="./components/index.js"></script>
 <script>
-    // message 弹窗集合
-    let messages = []
-    // 生成 message / 删除 message
-    function message() {
-        let duration = 3000
-        let type = "success"
-        let title = ""
-        if (arguments.length == 1) {
-            if (typeof arguments[0] == 'object') {
-                duration = arguments[0].duration ? arguments[0].duration : duration
-                type = arguments[0].type ? arguments[0].type : type
-                title = arguments[0].title ? arguments[0].title : title
-            } else {
-                title = arguments[0]
-            }
-        } else {
-            title = arguments[0] ? arguments[0] : title
-            type = arguments[1] ? arguments[1] : type
-            duration = arguments[2] ? arguments[2] : duration
-        }
-        let messageBox = document.getElementById("messageBox")
-        if (!messageBox) {
-            messageBox = document.createElement("div")
-            messageBox.classList.add("pop-message-box")
-            messageBox.id = "messageBox"
-            document.body.appendChild(messageBox)
-        }
-        let message = document.createElement("div")
-        message.classList.add("pop-message")
-        message.classList.add("message-" + type)
-        message.innerHTML = title
-        messageBox.appendChild(message)
-        messages.push(message)
-        setTimeout(() => {
-            message.classList.add("message-enter")
-            setTimeout(() => {
-                message.classList.remove("message-enter")
-                setTimeout(() => {
-                    messageBox.removeChild(message)
-                    messages.splice(0, 1)
-                    if (messages.length == 0) {
-                        document.body.removeChild(messageBox)
-                    }
-                }, 600);
-            }, duration);
-        }, 100);
-    }
     // 获取 input 的值
     function getValue(e) {
         return document.getElementById(e).value
@@ -88,21 +42,21 @@
         let code = getValue("code")
         if (uname.length < 5) {
             // 弹窗提示
-            message({
+            $message({
                 title: "账号至少五位数",
                 type: "warning"
             })
             return false
         } else if (pword.length < 5) {
             // 弹窗提示
-            message({
+            $message({
                 title: "密码至少五位数",
                 type: "warning"
             })
             return false
         } else if (code.length != 6) {
             // 弹窗提示
-            message({
+            $message({
                 title: "验证码错误",
                 type: "warning"
             })
