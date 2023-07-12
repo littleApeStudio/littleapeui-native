@@ -1,1 +1,0 @@
-document.write("<script language=javascript src='./components/js/message.js'></script>")

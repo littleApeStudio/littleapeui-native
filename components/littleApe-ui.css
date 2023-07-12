@@ -1,0 +1,553 @@
+/*
+ *
+ * message 消息提示弹窗
+ *
+*/
+
+.messageBox {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    width: max-content;
+}
+
+.message {
+    padding: 15px;
+    margin-top: -50px;
+    opacity: 0;
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 0.6s;
+    overflow: hidden;
+}
+
+.message-warning {
+    color: #ffae36;
+    background: #fdf2e1;
+    border: 1px solid #ffc46d;
+}
+
+.message-success {
+    color: #48c548;
+    background: #eeffee;
+    border: 1px solid #83d183;
+}
+
+.message-error {
+    color: #ff5549;
+    background: #ffeae9;
+    border: 1px solid #ff8880;
+}
+
+.message-info {
+    color: #808080;
+    background: #F0F8FF;
+    border: 1px solid #eeeeee;
+}
+
+.message-enter {
+    margin-top: 15px;
+    opacity: 1;
+}
+
+
+/*
+ *
+ * msgbox 弹窗
+ *
+*/
+.msgbox-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.35s;
+}
+
+.msgbox-mask-enter {
+    opacity: 1;
+}
+
+.msgbox {
+    position: fixed;
+    top: calc(50% - 120px);
+    left: calc(50% - 200px);
+    padding: 10px;
+    width: 400px;
+    height: 240px;
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.msgbox-enter {
+    animation: msgboxEnter 0.5s forwards;
+}
+
+.msgbox-leave {
+    animation: msgboxLeave 0.35s forwards;
+}
+
+@keyframes msgboxEnter {
+    0% {
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    90% {
+        transform: scale(0.95);
+    }
+
+    95% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes msgboxLeave {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(0.7);
+    }
+}
+
+/* msgbox 标题 */
+.msgbox-title {
+    padding-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* msgbox 标题图标 */
+/* 成功 */
+.msgbox-success-title-icon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #6eb6ff;
+}
+
+.msgbox-success-title-icon::after {
+    position: absolute;
+    top: 11.5px;
+    left: 8px;
+    content: "";
+    width: 14px;
+    height: 2px;
+    border-radius: 0 1px 1px 0;
+    background: #ffffff;
+    transform: rotate(-45deg);
+}
+
+.msgbox-success-title-icon::before {
+    position: absolute;
+    top: 13px;
+    left: 5px;
+    content: "";
+    width: 6px;
+    height: 2px;
+    border-radius: 1px 0 0 1px;
+    background: #ffffff;
+    transform: rotate(45deg);
+}
+
+/* 警告 */
+.msgbox-warning-title-icon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ff9a3c;
+}
+
+.msgbox-warning-title-icon::after {
+    position: absolute;
+    bottom: 5px;
+    left: calc(50% - 2px);
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.msgbox-warning-title-icon::before {
+    position: absolute;
+    top: 5px;
+    left: calc(50% - 2px);
+    content: "";
+    width: 4px;
+    height: 9px;
+    border-radius: 2px 2px 50% 50%;
+    background: #ffffff;
+}
+
+/* 错误 */
+.msgbox-error-title-icon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ff6767;
+}
+
+.msgbox-error-title-icon::after {
+    position: absolute;
+    top: 11.5px;
+    left: 4.5px;
+    content: "";
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+    background: #ffffff;
+    transform: rotate(45deg);
+}
+
+.msgbox-error-title-icon::before {
+    position: absolute;
+    top: 11.5px;
+    left: 4.5px;
+    content: "";
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+    background: #ffffff;
+    transform: rotate(-45deg);
+}
+
+/* msgbox 关闭图标 */
+.msgbox-title-close {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    --bg: #bebebe;
+}
+
+.msgbox-title-close:hover {
+    --bg: #999999;
+}
+
+.msgbox-title-close:active {
+    --bg: #808080 !important;
+}
+
+.msgbox-title-close::after {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    content: "";
+    width: 30px;
+    height: 2px;
+    border-radius: 0 1px 1px 0;
+    background: var(--bg);
+    transform: rotate(-45deg);
+    transition: all 0.35s;
+}
+
+.msgbox-title-close::before {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    content: "";
+    width: 30px;
+    height: 2px;
+    border-radius: 1px 0 0 1px;
+    background: var(--bg);
+    transform: rotate(45deg);
+    transition: all 0.35s;
+}
+
+/* msgbox 标题文字 */
+.msgbox-title-title {
+    margin-left: 10px;
+    width: 0;
+    flex: 1;
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    color: #111111;
+}
+
+/* msgbox 内容 */
+.msgbox-content {
+    width: 100%;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 25px;
+    color: #313131;
+    text-indent: 28px;
+}
+
+.msgbox-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.msgbox-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: transparent;
+}
+
+.msgbox-content::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: #eeeeee;
+}
+
+/* msgbox 底部 */
+.msgbox-contral {
+    padding-top: 10px;
+    width: 100%;
+    height: 40px;
+    text-align: right;
+}
+
+.msgbox-contral>.ape-button:nth-child(1) {
+    margin-right: 5px;
+}
+
+/*
+ *
+ * form 表单样式
+ *
+*/
+/* form表单及输入框、按钮基础样式 */
+.ape-form {
+    padding: 15px;
+    width: 100%;
+    min-width: 300px;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* 表单输入框盒子 */
+.ape-form>.ape-form-input {
+    margin-top: 10px;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 表单输入框标题 */
+.ape-form>.ape-form-input>.ape-label {
+    margin-right: 10px;
+    width: 90px;
+    height: calc(100% - 4px);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: default;
+    user-select: none;
+}
+
+.ape-form>.ape-form-input>.ape-label>span {
+    margin-left: 5px;
+    color: #ff5500;
+    font-weight: bold;
+}
+
+/* 表单输入框 */
+.ape-form>.ape-form-input>.ape-input {
+    width: 0;
+    flex: 1;
+}
+
+/* 表单按钮元素 */
+.ape-form>.ape-form-input>.ape-contral {
+    width: 0;
+    flex: 1;
+}
+
+/* 表单验证码 */
+.ape-form>.ape-form-input>.ape-code {
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+}
+
+.ape-form>.ape-form-input>.ape-code>img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+}
+
+
+/*
+ *
+ * input样式
+ *
+*/
+.ape-input {
+    padding: 0 10px;
+    width: max-content;
+    min-width: 150px;
+    height: 40px;
+    margin: 0;
+    background: none;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid #eeeeee;
+    outline: none;
+    box-sizing: border-box;
+    transition: border 0.35s;
+}
+
+.ape-input:focus {
+    border: 2px solid #1495ff !important;
+}
+
+.ape-input:hover {
+    border: 2px solid #cccccc;
+}
+
+
+/*
+ *
+ * button样式
+ *
+*/
+.ape-button {
+    margin: 0;
+    padding: 0 10px;
+    width: max-content;
+    min-width: 90px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    background: #57bcff;
+    border: 1px solid #57bcff;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+    font-family: "微软雅黑";
+}
+
+.ape-button:active {
+    background: #4798ce !important;
+}
+
+.ape-button:hover {
+    background: #86cfff;
+}
+
+.ape-button-success {
+    background: #50db67;
+    border: 1px solid #50db67;
+}
+
+.ape-button-success:active {
+    background: #3eaa50 !important;
+}
+
+.ape-button-success:hover {
+    background: #8beb9a;
+}
+
+.ape-button-warning {
+    background: #ffa357;
+    border: 1px solid #ffa357;
+}
+
+.ape-button-warning:active {
+    background: #cc8246 !important;
+}
+
+.ape-button-warning:hover {
+    background: #ffc392;
+}
+
+.ape-button-error {
+    background: #ff6464;
+    border: 1px solid #ff6464;
+}
+
+.ape-button-error:active {
+    background: #c44d4d !important;
+}
+
+.ape-button-error:hover {
+    background: #ffaaaa;
+}
+
+.ape-button-info {
+    background: #8b8b8b;
+    border: 1px solid #8b8b8b;
+}
+
+.ape-button-info:active {
+    background: #707070 !important;
+}
+
+.ape-button-info:hover {
+    background: #aaaaaa;
+}
+
+.ape-button-plain {
+    color: #57bcff;
+    background: #ffffff;
+    border: 1px solid #57bcff;
+}
+
+.ape-button-plain:active {
+    color: #ffffff;
+    background: #4798ce !important;
+}
+
+.ape-button-plain:hover {
+    color: #ffffff;
+    background: #86cfff;
+}

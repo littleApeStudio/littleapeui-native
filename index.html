@@ -6,114 +6,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
+    <link rel="stylesheet" href="./components/littleApe-ui.css">
+    <script src="./components/littleApe-ui.js"></script>
     <link rel="stylesheet" href="./css/basis.css">
-    <link rel="stylesheet" href="./components/index.css">
-    <script src="./components/index.js"></script>
+    <script src="./js/tools.js"></script>
 </head>
 
 <body>
     <!-- form表单 -->
-    <form class="form" style="width: 400px;" method="post" onsubmit="return form()">
-        <div class="input">
-            <div class="label">账号</div>
-            <input id="uname" type="text" placeholder="请输入账号">
+    <form class="ape-form" method="post" onsubmit="return form()">
+        <div class="ape-form-input">
+            <div class="ape-label">账号<span>*</span></div>
+            <input class="ape-input" id="uname" type="text" placeholder="请输入账号">
         </div>
-        <div class="input">
-            <div class="label">密码</div>
-            <input id="pword" type="password" placeholder="请输入密码">
+        <div class="ape-form-input">
+            <div class="ape-label">密码<span>*</span></div>
+            <input class="ape-input" id="pword" type="password" placeholder="请输入密码" autocomplete>
         </div>
-        <div class="input input-code">
-            <div class="label">验证码</div>
-            <input id="code" type="text" placeholder="请输入验证码">
-            <div class="code">
-                <img onclick="makeCode()" id="code-img">
+        <div class="ape-form-input">
+            <div class="ape-label">验证码<span>*</span></div>
+            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+            <div class="ape-code">
+                <img id="code-img" onclick="makeCode()">
             </div>
         </div>
-        <button class="button" type="submit">登录</button>
+        <div class="ape-form-input">
+            <div class="ape-label"></div>
+            <div class="ape-contral">
+                <button class="ape-button" type="submit">登录</button>
+                <button class="ape-button ape-button-plain" type="button">注册</button>
+            </div>
+        </div>
     </form>
-
+    <button class="ape-button ape-button-success" onclick="success()">成功</button>
+    <button class="ape-button ape-button-warning" onclick="warning()">警告</button>
+    <button class="ape-button ape-button-error" onclick="error()">错误</button>
 </body>
 <script>
-    let code_info = {}
+    function success() {
+        $msgbox({
+            title: "成功",
+            type: "success",
+            content: "这是一条成功的提示",
+            confirmText: "我知道了",
+            cansoleText: "收到"
+        }).then((res) => {
+            console.log('点击了确定')
+        }).catch(() => {
+            console.log('点击了取消或者关闭')
+        })
+    }
+    function warning() {
+        $msgbox({
+            title: "警告",
+            type: "warning",
+            content: "这是一条警告的提示",
+            showClose: false
+        }).then((res) => {
+            console.log('点击了确定')
+        }).catch(() => {
+            console.log('点击了取消或者关闭')
+        })
+    }
+    function error() {
+        $msgbox({
+            title: "错误",
+            type: "error",
+            content: "这是一条错误的提示",
+            showCansole: false
+        }).then((res) => {
+            console.log('点击了确定')
+        }).catch(() => {
+            console.log('点击了取消或者关闭')
+        })
+    }
+
+
+    let result = null
+    // 获取验证码
     function makeCode() {
-        let canvas = document.createElement("canvas")
-        canvas.width = 100
-        canvas.height = 36
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = color(0.2)
-        ctx.fillRect(0, 0, 100, 36);
-        ctx.fillStyle = color();
-        ctx.font = "18px 微软雅黑"
-        let num1 = Math.round(Math.random() * 98)
-        let num2 = Math.round(Math.random() * 98)
-        let utils = ['*', '+', '-']
-        let util = utils[Math.round(Math.random() * 2)]
-        ctx.fillStyle = color();
-        ctx.fillText(num1, 5, 27)
-        ctx.fillStyle = color();
-        ctx.fillText(util, 25, 27)
-        ctx.fillStyle = color();
-        ctx.fillText(num2, 35, 27)
-        ctx.fillStyle = color();
-        ctx.fillText("=", 60, 27)
-        ctx.fillStyle = color();
-        ctx.fillText("?", 80, 27)
-        ctx.strokeStyle = color();
-        ctx.lineWidth = Math.round(Math.random() * 2);
-        ctx.moveTo(5, Math.round(Math.random() * 28) + 3);
-        ctx.lineTo(95, Math.round(Math.random() * 28) + 3);
-        ctx.stroke();
-        function color(e) {
-            return `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${e || 1})`
-        }
-        document.getElementById("code-img").src = canvas.toDataURL('image/png')
-        code_info = {
-            num1: num1,
-            num2: num2,
-            util: util
-        }
+        let code_info = $createCode()
+        $getEle("code-img").src = code_info.codeImg
+        result = code_info.result
     }
     makeCode()
-    // 获取 input 的值
-    function getValue(e) {
-        return document.getElementById(e).value
-    }
     /* 表单验证 */
     function form() {
-        let uname = getValue("uname")
-        let pword = getValue("pword")
-        let code = getValue("code")
+        let uname = $getValue("uname")
+        let pword = $getValue("pword")
+        let code = $getValue("code")
         if (uname.length < 5) {
             // 弹窗提示
             $message({
                 title: "账号至少五位数",
-                type: "warning"
+                type: "info"
             })
         } else if (pword.length < 5) {
             // 弹窗提示
             $message({
                 title: "密码至少五位数",
-                type: "warning"
+                type: "info"
             })
         } else if (code.length < 1) {
             // 弹窗提示
             $message({
                 title: "请输入验证码",
-                type: "warning"
+                type: "info"
             })
         } else {
-            function result(e) {
-                if (e.util == '*') {
-                    return e.num1 * e.num2
-                } else if (e.util == '+') {
-                    return e.num1 + e.num2
-                } else if (e.util == '-') {
-                    return e.num1 - e.num2
-                } else {
-                    return null
-                }
-            }
-            if (code != result(code_info)) {
+            if (code != result) {
                 $message({
                     title: "验证码错误",
                     type: "warning"
