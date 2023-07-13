@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- littleApe-UI组件 -->
+    <link rel="stylesheet" href="../../components/littleApe-ui.css">
+    <script src="../../components/littleApe-ui.js"></script>
+    <!-- 工具类 -->
+    <script src="../../js/tools.js"></script>
+    <!-- 组件实例 -->
+    <link rel="stylesheet" href="../index.css">
+    <script src="../index.js"></script>
+    <title>组件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabsBox" class="tabs-box"></div>
+        <div class="content">
+            <div class="title">message 消息提示</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">常用于主动操作后的反馈提示。与 Notification 的区别是后者更多用于系统级通知的被动提醒。</div>
+            <div class="tip">基础用法</div>
+            <div class="introduce">从顶部出现，3 秒后自动消失。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-plain-default" onclick="open1()">打开消息提示</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">不同状态</div>
+            <div class="introduce">用来显示「成功、警告、错误」类的操作反馈。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-success" onclick="open2('success','成功')">成功</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-warning" onclick="open2('warning','警告')">警告</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-error" onclick="open2('error','错误')">错误</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">不同时长</div>
+            <div class="introduce">动态控制message展示的时长。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button  ape-button-success" onclick="open3('success','成功',3000)">成功 3s</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button  ape-button-warning" onclick="open3('warning','警告',2000)">警告 2s</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button  ape-button-error" onclick="open3('error','错误',1000)">错误 1s</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 初始化选项卡
+    $a('message')
+    // 用法一
+    function open1() {
+        $message("这是一条消息提示。")
+    }
+    // 用法二
+    function open2(type, message) {
+        $message({
+            title: `这是一条 ${message} 消息`,
+            type: type
+        })
+    }
+    // 用法三
+    function open3(type, message, duration) {
+        $message({
+            title: `这是一条 ${message} 消息`,
+            type: type,
+            duration: duration
+        })
+    }
+</script>
+<style>
+
+</style>

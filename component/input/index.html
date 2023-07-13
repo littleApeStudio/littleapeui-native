@@ -20,11 +20,17 @@
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div class="content">
-            <div class="title">安装</div>
-            <div class="tip">CDN</div>
-            <div class="introduce">目前可以通过下载 <span class="link" onclick="downloadJs()">littleApe-UI.js</span> 和 <span
-                    class="link" onclick="downloadCss()">littleApe-UI.css</span>
-                的方式来获取最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
+            <div class="title">input 输入框</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">通过鼠标或键盘输入字符。</div>
+            <div class="tip">基础用法</div>
+            <div class="introduce">基础的输入框用法</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <input class="ape-input" placeholder="请输入内容"></input>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -33,15 +39,7 @@
 </html>
 <script>
     // 初始化选项卡
-    $a('install')
-    // 下载 js
-    function downloadJs() {
-        window.open('../../components/littleApe-ui.js','littleApe-UI.js')
-    }
-    // 下载 css
-    function downloadCss() {
-        window.open('../../components/littleApe-ui.css','littleApe-UI.css')
-    }
+    $a('input')
 </script>
 <style>
 

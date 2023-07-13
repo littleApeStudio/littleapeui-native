@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- littleApe-UI组件 -->
+    <link rel="stylesheet" href="../../components/littleApe-ui.css">
+    <script src="../../components/littleApe-ui.js"></script>
+    <!-- 工具类 -->
+    <script src="../../js/tools.js"></script>
+    <!-- 组件实例 -->
+    <link rel="stylesheet" href="../index.css">
+    <script src="../index.js"></script>
+    <title>组件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabsBox" class="tabs-box"></div>
+        <div class="content">
+            <div class="title">msgbox 弹框</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">模拟系统的消息提示框而实现的一套模态对话框组件，用于消息提示、确认消息和提交内容。</div>
+            <div class="tip">消息提示</div>
+            <div class="introduce">—当用户进行操作时会被触发，该对话框中断用户操作，直到用户确认知晓后才可关闭。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-plain-default" onclick="open1()">打开 msgbox 弹窗</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">不同状态</div>
+            <div class="introduce">用来显示「成功、警告、错误」类的对话框。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-success" onclick="open2('success','成功')">成功</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-warning" onclick="open2('warning','警告')">警告</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-error" onclick="open2('error','错误')">错误</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">自定义按钮文字</div>
+            <div class="introduce">可以分别设置取消按钮和确定按钮的文字。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button" onclick="open3()">更改按钮名字</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">显示/隐藏取消按钮</div>
+            <div class="introduce">动态控制取消按钮的显隐。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button" onclick="open4(true)">显示</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button" onclick="open4(false)">隐藏</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">显示/隐藏关闭按钮</div>
+            <div class="introduce">动态控制关闭按钮的显隐。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button" onclick="open5(true)">显示</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button" onclick="open5(false)">隐藏</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 初始化选项卡
+    $a('msgbox')
+    // 用法一
+    function open1() {
+        $msgbox({
+            title: "标题名称",
+            content: "这是一段内容"
+        }).then(() => {
+            $message("点击了确定")
+        }).catch(() => {
+            $message("点击了取消","warning")
+        })
+    }
+    // 用法二
+    function open2(type, message) {
+        $msgbox({
+            title: `${message}`,
+            content: `这是 ${message} 的对话框`,
+            type: type
+        })
+    }
+    // 用法三
+    function open3() {
+        $msgbox({
+            confirmText: "改了确定",
+            cansoleText: "改了取消",
+        })
+    }
+    // 用法四
+    function open4(e) {
+        $msgbox({
+            showCansole: e
+        })
+    }
+    // 用法五
+    function open5(e) {
+        $msgbox({
+            showClose: e
+        })
+    }
+</script>
+<style>
+
+</style>

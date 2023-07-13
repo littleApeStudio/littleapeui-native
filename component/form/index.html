@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- littleApe-UI组件 -->
+    <link rel="stylesheet" href="../../components/littleApe-ui.css">
+    <script src="../../components/littleApe-ui.js"></script>
+    <!-- 工具类 -->
+    <script src="../../js/tools.js"></script>
+    <!-- 组件实例 -->
+    <link rel="stylesheet" href="../index.css">
+    <script src="../index.js"></script>
+    <title>组件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabsBox" class="tabs-box"></div>
+        <div class="content">
+            <div class="title">form 表单</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">由输入框、选择器、单选框、多选框等控件组成，用以收集、校验、提交数据。</div>
+            <div class="tip">典型表单</div>
+            <div class="introduce">包括各种表单项，比如输入框、选择器、开关、单选框、多选框等。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <form class="ape-form" method="post" onsubmit="return form()">
+                        <div class="ape-form-input">
+                            <div class="ape-label">账号<span>*</span></div>
+                            <input class="ape-input" id="uname" type="text" placeholder="请输入账号">
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label">密码<span>*</span></div>
+                            <input class="ape-input" id="pword" type="password" placeholder="请输入密码" autocomplete>
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label">验证码<span>*</span></div>
+                            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label"></div>
+                            <div class="ape-contral">
+                                <button class="ape-button" type="submit">登录</button>
+                                <button class="ape-button ape-button-warning" type="reset">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tip">高级表单</div>
+            <div class="introduce">带验证码的表单</div>
+            <div class="examples">
+                <div class="example-module">
+                    <form class="ape-form" method="post" onsubmit="return form()">
+                        <div class="ape-form-input">
+                            <div class="ape-label">账号<span>*</span></div>
+                            <input class="ape-input" id="uname" type="text" placeholder="请输入账号">
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label">密码<span>*</span></div>
+                            <input class="ape-input" id="pword" type="password" placeholder="请输入密码" autocomplete>
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label">验证码<span>*</span></div>
+                            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+                            <div class="ape-code">
+                                <img id="code-img" onclick="makeCode()">
+                            </div>
+                        </div>
+                        <div class="ape-form-input">
+                            <div class="ape-label"></div>
+                            <div class="ape-contral">
+                                <button class="ape-button" type="submit">登录</button>
+                                <button class="ape-button ape-button-plain" type="button">注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 初始化选项卡
+    $a('form')
+    // 获取验证码
+    function makeCode() {
+        let code_info = $createCode()
+        $getEle("code-img").src = code_info.codeImg
+        result = code_info.result
+    }
+    makeCode()
+    /* 表单验证 */
+    function form() {
+        return false
+    }
+</script>
+<style>
+
+</style>

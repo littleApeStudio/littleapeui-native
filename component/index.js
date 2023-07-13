@@ -68,6 +68,7 @@ function $a(component) {
                     let to = '/component/' + tabs[i].component + '/'
                     if (component != tabs[i].component) {
                         window.location.href = to
+                        // history.pushState(null, null, to)
                     }
                 }
             }
