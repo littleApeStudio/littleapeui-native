@@ -65,9 +65,9 @@ function $a(component) {
             tab.setAttribute('component', tabs[i].component)
             if (tabs[i].type === 'tab') {
                 tab.onclick = function () {
-                    let to = '/components.html?component=' + tabs[i].component
-                    if (now != tabs[i].component) {
-                        history.pushState(null, null, to);
+                    let to = '/component/' + tabs[i].component + '/'
+                    if (component != tabs[i].component) {
+                        window.location.href = to
                     }
                 }
             }
