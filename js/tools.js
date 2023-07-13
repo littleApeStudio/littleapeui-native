@@ -66,3 +66,13 @@ function $getEle(EleId) {
 function $getValue(EleId) {
     return document.getElementById(EleId).value
 }
+
+// 获取地址栏参数
+function $params(url) {
+    let pattern = /(\w+)=(\w+)/ig;
+    let parames = {};
+    url.replace(pattern, ($, $1, $2) => {
+        parames[$1] = $2;
+    });
+    return parames;
+}

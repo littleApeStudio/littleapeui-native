@@ -259,26 +259,26 @@
 /* msgbox 关闭图标 */
 .msgbox-title-close {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     --bg: #bebebe;
 }
 
 .msgbox-title-close:hover {
-    --bg: #999999;
+    --bg: #ff4040;
 }
 
 .msgbox-title-close:active {
-    --bg: #808080 !important;
+    --bg: #666666 !important;
 }
 
 .msgbox-title-close::after {
     position: absolute;
-    top: 14px;
+    top: 11.5px;
     left: 0;
     content: "";
-    width: 30px;
+    width: 25px;
     height: 2px;
     border-radius: 0 1px 1px 0;
     background: var(--bg);
@@ -288,10 +288,10 @@
 
 .msgbox-title-close::before {
     position: absolute;
-    top: 14px;
+    top: 11.5px;
     left: 0;
     content: "";
-    width: 30px;
+    width: 25px;
     height: 2px;
     border-radius: 1px 0 0 1px;
     background: var(--bg);
@@ -524,16 +524,16 @@
 }
 
 .ape-button-info {
-    background: #8b8b8b;
-    border: 1px solid #8b8b8b;
+    background: #aaaaaa;
+    border: 1px solid #aaaaaa;
 }
 
 .ape-button-info:active {
-    background: #707070 !important;
+    background: #999999 !important;
 }
 
 .ape-button-info:hover {
-    background: #aaaaaa;
+    background: #bbbbbb;
 }
 
 .ape-button-plain {
