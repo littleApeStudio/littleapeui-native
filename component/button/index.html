@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../components/littleApe-ui.css">
+    <script src="../../components/littleApe-ui.js"></script>
+    <script src="../../js/tools.js"></script>
+    <title>组件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabsBox" class="tabs-box"></div>
+        <!-- <div class="content">
+            <div class="title">button 按钮</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">无</div>
+            <div class="tip">示例</div>
+            <div class="introduce">基础用法</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button">默认按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-success">成功按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-warning">警告按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-error">危险按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-info">信息按钮</button>
+                    </div>
+                </div>
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-plain">默认按钮</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</body>
+
+</html>
+<script src="../index.js">
+</script>
+<script>
+    $a('button')
+</script>
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: auto;
+        width: 80%;
+        height: 100vh;
+        min-width: 1000px;
+        background: #ffffff;
+        display: flex;
+    }
+
+    .tabs-box {
+        padding: 30px 0;
+        width: 200px;
+        height: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .tabs-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .tabs-box::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #eeeeee;
+    }
+
+    .tabs-box::-webkit-scrollbar-track {
+        border-radius: 2px;
+        background: transparent;
+    }
+
+    .tab {
+        padding: 0 15px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: #515151;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: all 0.35s;
+        user-select: none;
+    }
+
+    .tab:hover {
+        color: #f56262;
+    }
+
+    .tab:active {
+        color: #999999;
+    }
+
+    .tab-active {
+        color: #f56262;
+    }
+
+    .tab-title {
+        padding: 0 15px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: #313131;
+        font-weight: bold;
+        box-sizing: border-box;
+        cursor: default;
+    }
+
+    .tab-tip {
+        padding: 0 15px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #808080;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: all 0.35s;
+        user-select: none;
+    }
+
+    .content {
+        padding: 30px 30px;
+        width: 0;
+        flex: 1;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #eeeeee;
+    }
+
+    .content::-webkit-scrollbar-track {
+        border-radius: 2px;
+        background: transparent;
+    }
+
+    .title {
+        padding-bottom: 20px;
+        width: 100%;
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: bold;
+        color: #5e88fc;
+    }
+
+    .tip {
+        padding-bottom: 10px;
+        width: 100%;
+        line-height: 21px;
+        font-size: 14px;
+        color: #707070;
+        box-sizing: border-box;
+        cursor: default;
+        user-select: none;
+    }
+
+    .introduce {
+        padding-bottom: 20px;
+        width: 100%;
+        line-height: 24px;
+        font-size: 16px;
+        color: #313131;
+        box-sizing: border-box;
+    }
+
+    .examples {
+        padding: 15px;
+        width: 100%;
+        border: 1px solid #eeeeee;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+
+    .example-module {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .example {
+        padding: 5px 10px;
+        width: max-content;
+        height: max-content;
+    }
+</style>
