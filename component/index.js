@@ -65,7 +65,7 @@ function $a(component) {
             tab.setAttribute('component', tabs[i].component)
             if (tabs[i].type === 'tab') {
                 tab.onclick = function () {
-                    let to = '/component/' + tabs[i].component + '/'
+                    let to = '../' + tabs[i].component + '/'
                     if (component != tabs[i].component) {
                         window.location.href = to
                         // history.pushState(null, null, to)
