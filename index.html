@@ -39,8 +39,7 @@
         </div>
     </form>
     <button class="ape-button ape-button" onclick="loading()">加载</button>
-    <button class="ape-button ape-button" onclick="make(1.5)">绘制</button>
-    <div class="ape-loading-mask">
+    <!-- <div class="ape-loading-mask">
         <div class="ape-loading">
             <div class="ape-loading-icon">
                 <div class="ape-loading-icon-i"></div>
@@ -49,11 +48,14 @@
             </div>
             <div class="ape-loading-title">加载中...</div>
         </div>
-    </div>
+    </div> -->
 </body>
 <script>
     function loading() {
-
+        $loading.show()
+        setTimeout(() => {
+            $loading.hide()
+        }, 3000);
     }
 
 

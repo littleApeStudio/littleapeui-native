@@ -44,6 +44,11 @@ function $a(component) {
         },
         {
             type: "tab",
+            name: "loading 加载",
+            component: 'loading'
+        },
+        {
+            type: "tab",
             name: "message 消息提示",
             component: 'message'
         },

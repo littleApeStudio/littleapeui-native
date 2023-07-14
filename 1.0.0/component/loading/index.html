@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- littleApe-UI组件 -->
+    <link rel="stylesheet" href="../../../components/littleApe-ui.css">
+    <script src="../../../components/littleApe-ui.js"></script>
+    <!-- 工具类 -->
+    <script src="../../../js/tools.js"></script>
+    <!-- 组件实例 -->
+    <link rel="stylesheet" href="../../index.css">
+    <script src="../../index.js"></script>
+    <title>组件</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tabsBox" class="tabs-box"></div>
+        <div class="content">
+            <div class="title">loading 加载</div>
+            <div class="tip">组件说明</div>
+            <div class="introduce">加载数据时显示动效。</div>
+            <div class="tip">基础用法</div>
+            <div class="introduce">在网络请求或者其他操作时为避免用户未知情况下的等待，可增加交互体验。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-plain" onclick="open1()">打开加载</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">自定义用法</div>
+            <div class="introduce">可自定义设置加载提示文本。</div>
+            <div class="examples">
+                <div class="example-module">
+                    <div class="example">
+                        <button class="ape-button ape-button-plain" onclick="open1('我是自定义的提示文本')">打开自定义文本加载</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 初始化选项卡
+    $a('loading')
+    function open1(e) {
+        $loading.show(e || null)
+        setTimeout(() => {
+            $loading.hide()
+        }, 5000);
+    }
+</script>
+<style>
+
+</style>

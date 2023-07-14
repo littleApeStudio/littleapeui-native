@@ -3,6 +3,58 @@
  * message 消息提示弹窗
  * 
 */
+let $loading = {
+    show: function (text) {
+        let title = "加载中..."
+        if (text) {
+            title = text
+        }
+        let loadingMask = document.createElement("div")
+        loadingMask.classList.add('ape-loading-mask')
+        loadingMask.id = "littleApe-loading"
+        let loading = document.createElement("div")
+        loading.classList.add('ape-loading')
+        let loadingIcon = document.createElement("div")
+        loadingIcon.classList.add('ape-loading-icon')
+        let loadingIconI = document.createElement("div")
+        loadingIconI.classList.add('ape-loading-icon-i')
+        let loadingIconI1 = document.createElement("div")
+        loadingIconI1.classList.add('ape-loading-icon-i')
+        let loadingIconI2 = document.createElement("div")
+        loadingIconI2.classList.add('ape-loading-icon-i')
+        let loadingTitle = document.createElement("div")
+        loadingTitle.classList.add('ape-loading-title')
+        loadingTitle.innerHTML = title
+        // 将组建插入到 body 中
+        document.body.append(loadingMask)
+        loadingMask.append(loading)
+        loading.append(loadingIcon)
+        loadingIcon.append(loadingIconI)
+        loadingIcon.append(loadingIconI1)
+        loadingIcon.append(loadingIconI2)
+        loading.append(loadingTitle)
+        // 添加动画
+        setTimeout(() => {
+            loadingMask.classList.add('ape-loading-enter')
+        }, 100);
+    },
+    hide: function () {
+        let loading = document.getElementById('littleApe-loading')
+        if (loading) {
+            loading.classList.remove('ape-loading-enter')
+            setTimeout(() => {
+                document.body.removeChild(loading)
+            }, 350);
+        }
+        return;
+    }
+}
+
+/*
+ *
+ * message 消息提示弹窗
+ * 
+*/
 
 // message 弹窗集合
 let messages = []

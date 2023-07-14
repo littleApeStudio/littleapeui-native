@@ -11,6 +11,14 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    transition: all 0.35s;
+    opacity: 0;
+    cursor: default;
+    user-select: none;
+}
+
+.ape-loading-enter {
+    opacity: 1;
 }
 
 .ape-loading {
@@ -35,53 +43,23 @@
     height: 20px;
     border-radius: 50%;
     background: #fff;
-    opacity: 0.5;
     transform: scale(0.9);
+    opacity: 0.5;
 }
 
 .ape-loading-icon-i:nth-child(1){
-    animation: apeLoadingIcon1 2s linear infinite;
+    animation: apeLoadingIcon 2.4s linear infinite;
 }
 
 .ape-loading-icon-i:nth-child(2){
-    animation: apeLoadingIcon2 2s linear infinite;
+    animation: apeLoadingIcon 2.4s 0.8s linear infinite;
 }
 
 .ape-loading-icon-i:nth-child(3){
-    animation: apeLoadingIcon3 2s linear infinite;
+    animation: apeLoadingIcon 2.4s 1.6s linear infinite;
 }
 
-@keyframes apeLoadingIcon1 {
-    0% {
-        opacity: 0.5;
-        transform: scale(0.9);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0.5;
-        transform: scale(0.9);
-    }
-}
-
-@keyframes apeLoadingIcon2 {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes apeLoadingIcon3 {
+@keyframes apeLoadingIcon {
     0% {
         opacity: 0.5;
         transform: scale(0.9);
