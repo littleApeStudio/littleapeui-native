@@ -1,5 +1,119 @@
 /*
  *
+ * loading 加载
+ *
+*/
+.ape-loading-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.ape-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+
+.ape-loading-icon {
+    margin: auto;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ape-loading-icon-i {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+.ape-loading-icon-i:nth-child(1){
+    animation: apeLoadingIcon1 2s linear infinite;
+}
+
+.ape-loading-icon-i:nth-child(2){
+    animation: apeLoadingIcon2 2s linear infinite;
+}
+
+.ape-loading-icon-i:nth-child(3){
+    animation: apeLoadingIcon3 2s linear infinite;
+}
+
+@keyframes apeLoadingIcon1 {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes apeLoadingIcon2 {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes apeLoadingIcon3 {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+}
+
+.ape-loading-title {
+    padding-top: 20px;
+    width: 100%;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/**/
+
+/***/
+
+
+/*
+ *
  * message 消息提示弹窗
  *
 */
@@ -367,6 +481,7 @@
 /* 表单输入框盒子 */
 .ape-form>.ape-form-input {
     margin-top: 10px;
+    min-width: 300px;
     min-height: 40px;
     display: flex;
     justify-content: space-between;
@@ -431,24 +546,34 @@
 .ape-input {
     padding: 0 10px;
     width: max-content;
-    min-width: 150px;
+    min-width: 80px;
     height: 40px;
     margin: 0;
     background: none;
     font-size: 15px;
     border-radius: 5px;
-    border: 2px solid #eeeeee;
+    border: 1px solid #dcdfe6;
     outline: none;
     box-sizing: border-box;
     transition: border 0.35s;
 }
 
 .ape-input:focus {
-    border: 2px solid #1495ff !important;
+    border: 1px solid #1495ff !important;
 }
 
 .ape-input:hover {
-    border: 2px solid #cccccc;
+    border: 1px solid #aaaaaa;
+}
+
+.ape-input::placeholder {
+    color: #bbbbbb;
+}
+
+.ape-input-area {
+    padding: 10px;
+    height: 50px;
+    min-height: 40px;
 }
 
 

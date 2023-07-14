@@ -38,47 +38,22 @@
             </div>
         </div>
     </form>
-    <button class="ape-button ape-button-success" onclick="success()">成功</button>
-    <button class="ape-button ape-button-warning" onclick="warning()">警告</button>
-    <button class="ape-button ape-button-error" onclick="error()">错误</button>
+    <button class="ape-button ape-button" onclick="loading()">加载</button>
+    <button class="ape-button ape-button" onclick="make(1.5)">绘制</button>
+    <div class="ape-loading-mask">
+        <div class="ape-loading">
+            <div class="ape-loading-icon">
+                <div class="ape-loading-icon-i"></div>
+                <div class="ape-loading-icon-i"></div>
+                <div class="ape-loading-icon-i"></div>
+            </div>
+            <div class="ape-loading-title">加载中...</div>
+        </div>
+    </div>
 </body>
 <script>
-    function success() {
-        $msgbox({
-            title: "成功",
-            type: "success",
-            content: "这是一条成功的提示",
-            confirmText: "我知道了",
-            cansoleText: "收到"
-        }).then((res) => {
-            console.log('点击了确定')
-        }).catch(() => {
-            console.log('点击了取消或者关闭')
-        })
-    }
-    function warning() {
-        $msgbox({
-            title: "警告",
-            type: "warning",
-            content: "这是一条警告的提示",
-            showClose: false
-        }).then((res) => {
-            console.log('点击了确定')
-        }).catch(() => {
-            console.log('点击了取消或者关闭')
-        })
-    }
-    function error() {
-        $msgbox({
-            title: "错误",
-            type: "error",
-            content: "这是一条错误的提示",
-            showCansole: false
-        }).then((res) => {
-            console.log('点击了确定')
-        }).catch(() => {
-            console.log('点击了取消或者关闭')
-        })
+    function loading() {
+
     }
 
 
