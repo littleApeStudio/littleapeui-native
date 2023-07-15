@@ -17,6 +17,14 @@ function $header(nowMenu) {
             page: ""
         },
     ]
+    // 设置网页 logo
+    var link = document.createElement("link");
+    link.setAttribute("rel", "shortcut icon");
+    link.setAttribute("type", "image/x-icon");
+    link.setAttribute("href", "../../logo.png");
+    document.getElementsByTagName("head")[0].appendChild(link)
+    // 设置网页标题
+    document.getElementsByTagName("title")[0].innerHTML = "小猿组件库"
     // 创建 header
     let header = document.getElementById("header")
     // 获取 header-container 容器
