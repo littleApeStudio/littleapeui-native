@@ -19,7 +19,7 @@
 <body>
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
-        <div class="content">
+        <div id="content" class="content">
             <div class="title">loading 加载</div>
             <div class="tip">组件说明</div>
             <div class="introduce">加载数据时显示动效。</div>
@@ -49,6 +49,7 @@
 <script>
     // 初始化选项卡
     $a('loading')
+    $animation()
     function open1(e) {
         $loading.show(e || null)
         setTimeout(() => {

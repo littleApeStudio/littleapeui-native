@@ -93,3 +93,27 @@ function $a(component) {
         }
     }
 }
+function $animation() {
+    let tabs = document.getElementById("tabsBox")
+    let content = document.getElementById("content")
+    let animationTimer = null
+    tabs.onmouseover = function tabMouse() {
+        animations(1)
+    }
+    tabs.onmouseleave = function tabMouse() {
+        animations(0)
+    }
+    content.onmouseover = function tabMouse() {
+        animations(0)
+    }
+    function animations(e) {
+        if (e == 0) {
+            clearTimeout(animationTimer)
+            animationTimer = setTimeout(() => {
+                tabs.style.opacity = 0.6
+            }, 5 * 1000);
+        } else {
+            tabs.style.opacity = 1
+        }
+    }
+}
