@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <div id="header" class="header"></div>
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
@@ -86,8 +87,10 @@
 
 </html>
 <script>
+    // 初始化header
+    $header("组件")
     // 初始化选项卡
-    $a('msgbox')
+    $compentTabs('msgbox')
     $animation()
     // 用法一
     function open1() {
@@ -97,7 +100,7 @@
         }).then(() => {
             $message("点击了确定")
         }).catch(() => {
-            $message("点击了取消","warning")
+            $message("点击了取消", "warning")
         })
     }
     // 用法二

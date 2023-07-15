@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <div id="header" class="header"></div>
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
@@ -32,16 +33,18 @@
 
 </html>
 <script>
+    // 初始化header
+    $header("组件")
     // 初始化选项卡
-    $a('install')
+    $compentTabs('install')
     $animation()
     // 下载 js
     function downloadJs() {
-        window.open('../../../components/littleApe-ui.js','littleApe-UI.js')
+        window.open('../../../components/littleApe-ui.js', 'littleApe-UI.js')
     }
     // 下载 css
     function downloadCss() {
-        window.open('../../../components/littleApe-ui.css','littleApe-UI.css')
+        window.open('../../../components/littleApe-ui.css', 'littleApe-UI.css')
     }
 </script>
 <style>

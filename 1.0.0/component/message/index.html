@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <div id="header" class="header"></div>
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
@@ -52,10 +53,12 @@
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button  ape-button-success" onclick="open3('success','成功',3000)">成功 3s</button>
+                        <button class="ape-button  ape-button-success" onclick="open3('success','成功',3000)">成功
+                            3s</button>
                     </div>
                     <div class="example">
-                        <button class="ape-button  ape-button-warning" onclick="open3('warning','警告',2000)">警告 2s</button>
+                        <button class="ape-button  ape-button-warning" onclick="open3('warning','警告',2000)">警告
+                            2s</button>
                     </div>
                     <div class="example">
                         <button class="ape-button  ape-button-error" onclick="open3('error','错误',1000)">错误 1s</button>
@@ -68,8 +71,10 @@
 
 </html>
 <script>
+    // 初始化header
+    $header("组件")
     // 初始化选项卡
-    $a('message')
+    $compentTabs('message')
     $animation()
     // 用法一
     function open1() {
