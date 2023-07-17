@@ -8,11 +8,16 @@
     <title>test</title>
     <link rel="stylesheet" href="./components/littleApe-ui.css">
     <script src="./components/littleApe-ui.js"></script>
-    <link rel="stylesheet" href="./css/basis.css">
+    <!-- js -->
+    <script src="./js/index.js"></script>
     <script src="./js/tools.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/basis.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
+    <div id="header" class="header"></div>
     <!-- form表单 -->
     <form class="ape-form" method="post" onsubmit="return form()">
         <div class="ape-form-input">
@@ -38,17 +43,10 @@
             </div>
         </div>
     </form>
-    <button class="ape-button ape-button" onclick="loading()">加载</button>
 </body>
 <script>
-    function loading() {
-        $loading.show()
-        setTimeout(() => {
-            $loading.hide()
-        }, 3000);
-    }
-
-
+    // 初始化header
+    $header("")
     let result = null
     // 获取验证码
     function makeCode() {

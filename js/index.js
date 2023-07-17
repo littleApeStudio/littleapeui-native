@@ -1,3 +1,4 @@
+window.BaseUrl="http://127.0.0.1:5500"
 // 渲染header
 function $header(nowMenu) {
     let menuList = [
@@ -21,7 +22,7 @@ function $header(nowMenu) {
     var link = document.createElement("link");
     link.setAttribute("rel", "shortcut icon");
     link.setAttribute("type", "image/x-icon");
-    link.setAttribute("href", "../../logo.png");
+    link.setAttribute("href", window.BaseUrl + "/logo.png");
     document.getElementsByTagName("head")[0].appendChild(link)
     // 设置网页标题
     document.getElementsByTagName("title")[0].innerHTML = "小猿组件库"
@@ -34,7 +35,7 @@ function $header(nowMenu) {
     let headerContainerLogo = document.createElement("div")
     headerContainerLogo.classList.add("header-container-logo")
     let headerLogoIcon = document.createElement("img")
-    headerLogoIcon.src = "../../logo.png"
+    headerLogoIcon.src = window.BaseUrl + "/logo.png"
     let headerLogoName = document.createElement("span")
     headerLogoName.innerHTML = "小猿组件库"
     // 创建 header 菜单
@@ -63,6 +64,17 @@ function $header(nowMenu) {
         headerContainerMenus.appendChild(menu)
         menu.appendChild(menuName)
         menu.appendChild(menuBorder)
+        if (nowMenu != '组件' && menuList[i].name == '组件') {
+            menu.onclick = function () {
+                window.location.href = window.BaseUrl + "/1.0.0/component/install/"
+            }
+        } else {
+            menu.onclick = function() {
+                $message("该页面暂未开发","warning")
+            }
+        }
     }
-
+    headerContainerLogo.onclick = function () {
+        window.location.href = window.BaseUrl
+    }
 }
