@@ -1,0 +1,98 @@
+@font-face {
+    font-family: "优设标题黑";
+    src: url("./font/优设标题黑.TTF");
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 0 20%;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.header-container {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container-logo {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: "优设标题黑";
+    font-size: 30px;
+    color: #f87c7c;
+    user-select: none;
+    cursor: pointer;
+}
+
+.header-container-logo>img {
+    margin-top: -5px;
+    width: 35px;
+    height: 35px;
+}
+
+.header-container-logo>span {
+    padding-left: 5px;
+}
+
+.header-container-menus {
+    width: max-content;
+    height: 100%;
+    display: flex;
+}
+
+.header-container-menu {
+    padding: 0 5px;
+    width: max-content;
+    min-width: 70px;
+    height: 100%;
+    font-size: 15px;
+    color: #f56262;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.6;
+    transition: opacity 0.35s;
+}
+
+.header-container-menu-name {
+    padding-top: 5px;
+    width: 100%;
+    height: calc(100% - 5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.header-container-menu-border {
+    margin: auto;
+    margin-top: 2px;
+    width: max-content;
+    height: 4px;
+    border-radius: 2px;
+    background: #f56262;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.header-container-menu:hover {
+    opacity: 1;
+}
+
+.header-container-menu:hover>.header-container-menu-border {
+    opacity: 1;
+}
