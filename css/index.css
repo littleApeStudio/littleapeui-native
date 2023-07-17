@@ -12,6 +12,7 @@ body {
 .header {
     padding: 0 20%;
     width: 100%;
+    min-width: 1000px;
     height: 80px;
     box-sizing: border-box;
 }

@@ -92,16 +92,16 @@
 }
 
 .content::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
 }
 
 .content::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background: #eeeeee;
+    border-radius: 5px;
+    background: #cccccc;
 }
 
 .content::-webkit-scrollbar-track {
-    border-radius: 2px;
+    border-radius: 5px;
     background: transparent;
 }
 

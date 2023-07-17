@@ -1,4 +1,5 @@
-window.BaseUrl="http://127.0.0.1:5500"
+// window.BaseUrl="http://127.0.0.1:5500"
+window.BaseUrl="https://littleape-native.apestudio.asia"
 // 渲染header
 function $header(nowMenu) {
     let menuList = [
@@ -70,7 +71,7 @@ function $header(nowMenu) {
             }
         } else {
             menu.onclick = function() {
-                $message("该页面暂未开发","warning")
+                $message("该页面暂未开发","info")
             }
         }
     }

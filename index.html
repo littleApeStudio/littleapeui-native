@@ -18,84 +18,194 @@
 
 <body>
     <div id="header" class="header"></div>
-    <!-- form表单 -->
-    <form class="ape-form" method="post" onsubmit="return form()">
-        <div class="ape-form-input">
-            <div class="ape-label">账号<span>*</span></div>
-            <input class="ape-input" id="uname" type="text" placeholder="请输入账号">
-        </div>
-        <div class="ape-form-input">
-            <div class="ape-label">密码<span>*</span></div>
-            <input class="ape-input" id="pword" type="password" placeholder="请输入密码" autocomplete>
-        </div>
-        <div class="ape-form-input">
-            <div class="ape-label">验证码<span>*</span></div>
-            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
-            <div class="ape-code">
-                <img id="code-img" onclick="makeCode()">
+    <div class="container">
+        <div class="content">
+            <div class="title">网站快速成型工具</div>
+            <div class="tip">LittleApe，一套为开发者、设计师和产品经理准备的基于原生 JavaScript 的组件库</div>
+            <div class="image">
+                <img src="./images/index-1.png">
+            </div>
+            <div class="card-list">
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/card-2.png">
+                    </div>
+                    <div class="card-title">指南</div>
+                    <div class="card-tip">了解设计指南，帮助产品设计人员搭建逻辑清晰、结构合理且高效易用的产品。</div>
+                    <div class="card-button" onclick="navigationTo('指南')">查看详情</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/card-1.png">
+                    </div>
+                    <div class="card-title">组件</div>
+                    <div class="card-tip">使用组件 Demo 快速体验交互细节；使用前端框架封装的代码帮助工程师快速开发。</div>
+                    <div class="card-button" onclick="navigationTo('组件')">查看详情</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/card-3.png">
+                    </div>
+                    <div class="card-title">资源</div>
+                    <div class="card-tip">下载相关资源，用其快速搭建页面原型或高保真视觉稿，提升产品设计效率。</div>
+                    <div class="card-button" onclick="navigationTo('资源')">查看详情</div>
+                </div>
             </div>
         </div>
-        <div class="ape-form-input">
-            <div class="ape-label"></div>
-            <div class="ape-contral">
-                <button class="ape-button" type="submit">登录</button>
-                <button class="ape-button ape-button-plain" type="button">注册</button>
-            </div>
-        </div>
-    </form>
+        <div class="bottom"></div>
+    </div>
 </body>
 <script>
     // 初始化header
     $header("")
-    let result = null
-    // 获取验证码
-    function makeCode() {
-        let code_info = $createCode()
-        $getEle("code-img").src = code_info.codeImg
-        result = code_info.result
-    }
-    makeCode()
-    /* 表单验证 */
-    function form() {
-        let uname = $getValue("uname")
-        let pword = $getValue("pword")
-        let code = $getValue("code")
-        if (uname.length < 5) {
-            // 弹窗提示
-            $message({
-                title: "账号至少五位数",
-                type: "info"
-            })
-        } else if (pword.length < 5) {
-            // 弹窗提示
-            $message({
-                title: "密码至少五位数",
-                type: "info"
-            })
-        } else if (code.length < 1) {
-            // 弹窗提示
-            $message({
-                title: "请输入验证码",
-                type: "info"
-            })
-        } else {
-            if (code != result) {
-                $message({
-                    title: "验证码错误",
-                    type: "warning"
-                })
-            } else {
-                $message({
-                    title: "登陆成功",
-                    type: "success"
-                })
-            }
+    function navigationTo(e) {
+        switch (e) {
+            case "指南":
+                $message("该页面暂未开发", "info")
+                break
+            case "组件":
+                window.location.href = window.BaseUrl + "/1.0.0/component/install/"
+                break
+            case "资源":
+                $message("该页面暂未开发", "info")
+                break
         }
-        return false
     }
 </script>
 
 <style>
+    .container {
+        width: 100%;
+        height: calc(100vh - 80px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .container::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #cccccc;
+    }
+
+    .container::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background: transparent;
+    }
+
+    .content {
+        padding: 20px 20%;
+        width: 100%;
+        min-width: 1000px;
+        box-sizing: border-box;
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+        color: #515151;
+        font-size: 35px;
+        font-weight: bold;
+        line-height: 52px;
+    }
+
+    .tip {
+        padding: 20px 0;
+        width: 100%;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        color: #838383;
+    }
+
+    .image {
+        margin: auto;
+        margin-top: 20px;
+        width: 70%;
+    }
+
+    .image>img {
+        width: 100%;
+    }
+
+    .card-list {
+        padding: 50px 0 100px 0;
+        width: 100%;
+        height: max-content;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .card {
+        width: 30%;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #eaeefb;
+        transition: all 0.35s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px 0 rgba(232, 237, 250, .8);
+    }
+
+    .card-icon {
+        padding: 10% 20%;
+        margin: auto;
+        width: 60%;
+        user-select: none;
+    }
+
+    .card-icon>img {
+        width: 100%;
+    }
+
+    .card-title {
+        padding: 0 20px;
+        width: 100%;
+        color: #313131;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .card-tip {
+        padding: 20px 20px 30px 20px;
+        width: 100%;
+        color: #99a9bf;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .card-button {
+        height: 50px;
+        line-height: 49px;
+        font-size: 14px;
+        color: #409eff;
+        text-align: center;
+        border-top: 1px solid #eaeefb;
+        border-radius: 0 0 5px 5px;
+        cursor: pointer;
+        transition: background 0.35s ease-in-out;
+    }
+
+    .card-button:hover {
+        color: #ffffff;
+        background: #409eff;
+    }
+
+    .bottom {
+        padding: 40px 150px;
+        width: 100%;
+        height: 340px;
+        box-sizing: border-box;
+        background-color: #f7fbfd;
+    }
 </style>
 
 </html>
