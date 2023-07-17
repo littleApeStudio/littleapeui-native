@@ -52,12 +52,45 @@
                 </div>
             </div>
         </div>
-        <div class="bottom"></div>
+        <div class="footer">
+            <div class="footer-main">
+                <div class="footer-main-title">链接</div>
+                <div class="footer-main-list">
+                    <a href="https://github.com/littleApeStudio?tab=repositories" target="_blank">GitHub 仓库</a>
+                </div>
+                <div class="footer-main-list">
+                    <a href="https://blog.csdn.net/weixin_46221428?spm=1000.2115.3001.5343" target="_blank">CSDN
+                        社区主页</a>
+                </div>
+                <div class="footer-main-list">
+                    <a href="https://www.apestudio.asia" target="_blank">小猿工作室官网</a>
+                </div>
+            </div>
+            <div class="footer-none"></div>
+            <div class="footer-social">
+                <div class="footer-social-title">littleApe-UI 1.0.0</div>
+                <div class="footer-social-content">
+                    <div class="footer-social-content-icon">
+                        <img id="weChat" src="./images/wechat.png">
+                        <div id="" class="foolter-social-tip">
+                            <div class="foolter-social-tip-title">小猿工作室</div>
+                            <div class="foolter-social-tip-content">
+                                <img src="./images/gzh.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-social-content-icon">
+                        <img src="./images/github.png" onclick="github()">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
     // 初始化header
     $header("")
+    // 卡片 跳转
     function navigationTo(e) {
         switch (e) {
             case "指南":
@@ -70,6 +103,9 @@
                 $message("该页面暂未开发", "info")
                 break
         }
+    }
+    function github () {
+        window.open("https://github.com/littleApeStudio?tab=repositories")
     }
 </script>
 
@@ -135,7 +171,7 @@
         width: 100%;
         height: max-content;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .card {
@@ -202,12 +238,155 @@
         background: #409eff;
     }
 
-    .bottom {
+    .footer {
         padding: 40px 150px;
         width: 100%;
-        height: 340px;
         box-sizing: border-box;
         background-color: #f7fbfd;
+        display: flex;
+    }
+
+    .font-main {
+        width: max-content;
+        height: 100%;
+        user-select: none;
+    }
+
+    .footer-main-title {
+        padding: 0 0 10px 0;
+        font-size: 18px;
+        color: #313131;
+        font-weight: bold;
+        cursor: default;
+    }
+
+    .footer-main-list {
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .footer-main-list>a {
+        font-size: 14PX;
+        color: #515151;
+        text-decoration: none;
+        transition: all 0.35s;
+    }
+
+    .footer-main-list>a:hover {
+        color: #f87c7c;
+    }
+
+    .footer-none {
+        flex: 1;
+    }
+
+    .footer-social {
+        width: max-content;
+        height: 100px;
+        user-select: none;
+    }
+
+    .footer-social-title {
+        width: 100%;
+        color: #666;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .footer-social-content {
+        padding-top: 10px;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .footer-social-content-icon {
+        margin-right: 10px;
+        position: relative;
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-social-content-icon:last-child {
+        margin-right: 0px;
+    }
+
+    .footer-social-content-icon>img {
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.35s;
+    }
+
+    .footer-social-content-icon>img:hover {
+        transform: scale(1.2);
+        filter: brightness(0.7);
+    }
+
+    .footer-social-content-icon:hover>.foolter-social-tip {
+        display: block;
+    }
+
+    .foolter-social-tip {
+        display: none;
+        position: absolute;
+        top: -175px;
+        left: -40px;
+        z-index: 10;
+        width: 120px;
+        height: 160px;
+        background: #ffffff;
+        border-radius: 5px;
+        border: 1px solid #eeeeee;
+        box-shadow: 0 6px 18px 0 rgba(232, 237, 250, .8);
+        opacity: 0;
+        animation: foolter-social-tip 0.6s 0.1s forwards;
+    }
+
+    @keyframes foolter-social-tip {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .foolter-social-tip::after {
+        position: absolute;
+        left: calc(50% - 10px);
+        top: 100%;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top: 10px solid #ffffff;
+    }
+
+    .foolter-social-tip-title {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        color: #313131;
+        background: #f5f9ff;
+        border-bottom: 1px solid #eeeeee;
+        letter-spacing: 2px;
+    }
+
+    .foolter-social-tip-content {
+        padding: 5px;
+        width: 120px;
+        height: 120px;
+        box-sizing: border-box;
+    }
+
+    .foolter-social-tip-content>img {
+        width: 100%;
     }
 </style>
 
