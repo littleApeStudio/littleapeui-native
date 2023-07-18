@@ -54,6 +54,28 @@
                         <button class="ape-button ape-button-plain">默认按钮</button>
                     </div>
                 </div>
+                <div id="code" class="examples-code">
+                    <div style="overflow: hidden;">
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                        <p>123456</p>
+                    </div>
+                </div>
+                <div id="control" class="examples-control"></div>
             </div>
         </div>
     </div>
@@ -66,6 +88,24 @@
     // 初始化选项卡
     $compentTabs('button')
     $animation()
+
+    let code = document.getElementById("code")
+    let control = document.getElementById("control")
+
+    control.onclick = function () {
+        let show = code.getAttribute("show")
+        if (show && show == 'true') {
+            code.setAttribute("show", false)
+            // code.style.height = '0px'
+            code.style.gridTemplateRows = '0fr';
+            control.classList.remove("examples-control-expand")
+        } else {
+            code.setAttribute("show", true)
+            code.style.gridTemplateRows = '1fr';
+            // code.style.height = '500px'
+            control.classList.add("examples-control-expand")
+        }
+    }
 </script>
 <style>
 
