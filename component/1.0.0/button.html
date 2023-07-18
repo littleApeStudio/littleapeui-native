@@ -13,8 +13,8 @@
     <script src="../../../js/tools.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../css/index.css">
-    <link rel="stylesheet" href="../../index.css">
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
     <title>组件</title>
 </head>
 
@@ -23,24 +23,35 @@
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
-            <div class="title">input 输入框</div>
+            <div class="title">button 按钮</div>
             <div class="tip">组件说明</div>
-            <div class="introduce">通过鼠标或键盘输入字符。</div>
+            <div class="introduce">常用的操作按钮。</div>
             <div class="tip">基础用法</div>
-            <div class="introduce">基础的输入框用法</div>
+            <div class="introduce">基础的按钮用法</div>
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <input class="ape-input" placeholder="请输入内容"></input>
+                        <button class="ape-button">默认按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-success">成功按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-warning">警告按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-error">危险按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-info">信息按钮</button>
                     </div>
                 </div>
-            </div>
-            <div class="tip">基础用法</div>
-            <div class="introduce">多行输入框用法</div>
-            <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <textarea class="ape-input ape-input-area" placeholder="请输入内容"></textarea>
+                        <button class="ape-button ape-button-plain-default">朴素按钮</button>
+                    </div>
+                    <div class="example">
+                        <button class="ape-button ape-button-plain">默认按钮</button>
                     </div>
                 </div>
             </div>
@@ -53,7 +64,7 @@
     // 初始化header
     $header("组件")
     // 初始化选项卡
-    $compentTabs('input')
+    $compentTabs('button')
     $animation()
 </script>
 <style>

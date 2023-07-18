@@ -13,8 +13,8 @@
     <script src="../../../js/tools.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../css/index.css">
-    <link rel="stylesheet" href="../../index.css">
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
     <title>组件</title>
 </head>
 
@@ -33,15 +33,15 @@
                     <form class="ape-form" method="post" onsubmit="return form()">
                         <div class="ape-form-input">
                             <div class="ape-label">账号<span>*</span></div>
-                            <input class="ape-input" placeholder="请输入账号">
+                            <input name="d" class="ape-input" placeholder="请输入账号">
                         </div>
                         <div class="ape-form-input">
                             <div class="ape-label">密码<span>*</span></div>
-                            <input class="ape-input" placeholder="请输入密码" autocomplete>
+                            <input name="e" class="ape-input" placeholder="请输入密码">
                         </div>
                         <div class="ape-form-input">
                             <div class="ape-label">验证码<span>*</span></div>
-                            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+                            <input name="f" class="ape-input" id="code" type="text" placeholder="请输入验证码">
                         </div>
                         <div class="ape-form-input">
                             <div class="ape-label"></div>
@@ -60,15 +60,15 @@
                     <form class="ape-form" method="post" onsubmit="return form()">
                         <div class="ape-form-input">
                             <div class="ape-label">账号<span>*</span></div>
-                            <input class="ape-input" placeholder="请输入账号">
+                            <input name="a" class="ape-input" placeholder="请输入账号">
                         </div>
                         <div class="ape-form-input">
                             <div class="ape-label">密码<span>*</span></div>
-                            <input class="ape-input" placeholder="请输入密码" autocomplete>
+                            <input name="b" class="ape-input" placeholder="请输入密码">
                         </div>
                         <div class="ape-form-input">
                             <div class="ape-label">验证码<span>*</span></div>
-                            <input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+                            <input name="c" class="ape-input" id="code" type="text" placeholder="请输入验证码">
                             <div class="ape-code">
                                 <img id="code-img" onclick="makeCode()">
                             </div>

@@ -20,35 +20,15 @@
     <div id="header" class="header"></div>
     <div class="container">
         <div class="content">
-            <div class="title">网站快速成型工具</div>
-            <div class="tip">LittleApe，一套为开发者、设计师和产品经理准备的基于原生 JavaScript 的组件库</div>
-            <div class="image">
-                <img src="./images/index-1.png">
-            </div>
+            <div class="title">相关资源</div>
+            <div class="tip">相关资源、以及站主研发的小工具正在整理和完善中</div>
             <div class="card-list">
                 <div class="card">
                     <div class="card-icon">
-                        <img src="./images/card-2.png">
+                        <img src="./images/zhxy-xcx.jpg">
                     </div>
-                    <div class="card-title">指南</div>
-                    <div class="card-tip">了解设计指南，帮助产品设计人员搭建逻辑清晰、结构合理且高效易用的产品。</div>
-                    <div class="card-button" onclick="navigationTo('指南')">查看详情</div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <img src="./images/card-1.png">
-                    </div>
-                    <div class="card-title">组件</div>
-                    <div class="card-tip">使用组件 Demo 快速体验交互细节；使用前端框架封装的代码帮助工程师快速开发。</div>
-                    <div class="card-button" onclick="navigationTo('组件')">查看详情</div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <img src="./images/card-3.png">
-                    </div>
-                    <div class="card-title">资源</div>
-                    <div class="card-tip">下载相关资源，用其快速搭建页面原型或高保真视觉稿，提升产品设计效率。</div>
-                    <div class="card-button" onclick="navigationTo('资源')">查看详情</div>
+                    <div class="card-title">智慧校猿</div>
+                    <div class="card-tip">智慧校猿小程序--助力于高校服务。</div>
                 </div>
             </div>
         </div>
@@ -89,24 +69,42 @@
 </body>
 <script>
     // 初始化header
-    $header("")
-    // 卡片 跳转
-    function navigationTo(e) {
-        switch (e) {
-            case "指南":
-                window.location.href = window.BaseUrl + "/guide.html"
-                break
-            case "组件":
-                window.location.href = window.BaseUrl + "/component/1.0.0/install.html"
-                break
-            case "资源":
-                window.location.href = window.BaseUrl + "/resource.html"
-                break
-        }
-    }
-    function github () {
-        window.open("https://github.com/littleApeStudio?tab=repositories")
-    }
+    $header("资源")
 </script>
+
+<style>
+    .title {
+        font-size: 28px;
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .tip {
+        padding: 0;
+        padding-top: 10px;
+        font-size: 14px;
+        color: #5e6d82;
+        text-align: left;
+    }
+
+    .card-list {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        margin-bottom: 30px;
+        margin-left: 30px;
+        transition: box-shadow 0.35s;
+    }
+
+    .card:first-child {
+        margin-left: 0;
+    }
+
+    .card:hover {
+        transform: translate(0);
+    }
+</style>
 
 </html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小猿组件库</title>
+    <link rel="stylesheet" href="./components/littleApe-ui.css">
+    <script src="./components/littleApe-ui.js"></script>
+    <!-- js -->
+    <script src="./js/index.js"></script>
+    <script src="./js/tools.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/basis.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="header" class="header"></div>
+    <div class="container">
+        <div class="content">
+            <div class="title">设计原则</div>
+            <div class="card-list">
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/fg.png">
+                    </div>
+                    <div class="card-title">统一风格</div>
+                    <div class="card-tip">Unified Style</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/kk.png">
+                    </div>
+                    <div class="card-title">灵活可控</div>
+                    <div class="card-tip">Flexible and Controllable</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <img src="./images/xl.png">
+                    </div>
+                    <div class="card-title">提高效率</div>
+                    <div class="card-tip">Increase Efficiency</div>
+                </div>
+            </div>
+            <div class="title1">统一风格&nbsp;&nbsp;&nbsp;&nbsp;Unified Style</div>
+            <div class="title1-content">
+                <div class="title1-content-li"><span>与现实生活一致：</span>与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念。</div>
+                <div class="title1-content-li"><span>在界面中一致：</span>所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            </div>
+            <div class="title1">灵活可控&nbsp;&nbsp;&nbsp;&nbsp;Flexible and Controllable</div>
+            <div class="title1-content">
+                <div class="title1-content-li"><span>用户决策：</span>根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策。</div>
+                <div class="title1-content-li"><span>样式可控：</span>所有的元素和结构均可按需调整。</div>
+                <div class="title1-content-li"><span>结果可控：</span>用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+            </div>
+            <div class="title1">提高效率&nbsp;&nbsp;&nbsp;&nbsp;Increase Efficiency</div>
+            <div class="title1-content">
+                <div class="title1-content-li"><span>简化流程：</span>设计简洁直观的操作流程。</div>
+                <div class="title1-content-li"><span>清晰明确：</span>语言表达清晰且表意明确，让用户快速理解进而作出决策。</div>
+                <div class="title1-content-li"><span>帮助用户识别：</span>界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-main">
+                <div class="footer-main-title">链接</div>
+                <div class="footer-main-list">
+                    <a href="https://github.com/littleApeStudio?tab=repositories" target="_blank">GitHub 仓库</a>
+                </div>
+                <div class="footer-main-list">
+                    <a href="https://blog.csdn.net/weixin_46221428?spm=1000.2115.3001.5343" target="_blank">CSDN
+                        社区主页</a>
+                </div>
+                <div class="footer-main-list">
+                    <a href="https://www.apestudio.asia" target="_blank">小猿工作室官网</a>
+                </div>
+            </div>
+            <div class="footer-none"></div>
+            <div class="footer-social">
+                <div class="footer-social-title">littleApe-UI 1.0.0</div>
+                <div class="footer-social-content">
+                    <div class="footer-social-content-icon">
+                        <img id="weChat" src="./images/wechat.png">
+                        <div id="" class="foolter-social-tip">
+                            <div class="foolter-social-tip-title">小猿工作室</div>
+                            <div class="foolter-social-tip-content">
+                                <img src="./images/gzh.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="footer-social-content-icon">
+                        <img src="./images/github.png" onclick="github()">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 初始化header
+    $header("指南")
+</script>
+<style>
+    .title {
+        font-size: 28px;
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .tip {
+        padding: 0;
+        padding-top: 10px;
+        font-size: 14px;
+        color: #5e6d82;
+        text-align: left;
+    }
+
+    .card-list {
+        justify-content: space-evenly;
+    }
+
+    .card {
+        width: 22%;
+        border: none;
+        transition: none;
+        background: #fbfcfd;
+        user-select: none;
+    }
+
+    .card:hover {
+        transform: translate(0);
+        box-shadow: none;
+    }
+
+    .card-icon {
+        padding: 20% 30%;
+        margin: auto;
+        width: 40%;
+        user-select: none;
+    }
+
+    .card-tip {
+        padding: 5px 20px 40px 20px;
+        width: 100%;
+        color: #99a9bf;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .title1 {
+        margin: 0 0 30px;
+        font-size: 22px;
+        font-weight: 400;
+        color: #1f2d3d;
+    }
+
+    .title1-content {
+        margin-bottom: 50px;
+    }
+
+    .title1-content-li {
+        position: relative;
+        padding: 5px 0 5px 10px;
+        font-size: 14px;
+        color: #99a9bf;
+    }
+
+    .title1-content-li::after {
+        position: absolute;
+        top: calc(50% - 2px);
+        left: 0;
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #99a9bf;
+    }
+
+    .title1-content-li>span {
+        color: #5e6d82;
+    }
+</style>
+
+</html>

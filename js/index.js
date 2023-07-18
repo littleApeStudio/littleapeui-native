@@ -1,4 +1,4 @@
-window.BaseUrl="http://127.0.0.1:5500"
+window.BaseUrl = "http://127.0.0.1:5500"
 // window.BaseUrl="https://littleape-native.apestudio.asia"
 // 渲染header
 function $header(nowMenu) {
@@ -67,11 +67,15 @@ function $header(nowMenu) {
         menu.appendChild(menuBorder)
         if (nowMenu != '组件' && menuList[i].name == '组件') {
             menu.onclick = function () {
-                window.location.href = window.BaseUrl + "/1.0.0/component/install/"
+                window.location.href = window.BaseUrl + "/component/1.0.0/install.html"
             }
-        } else {
-            menu.onclick = function() {
-                $message("该页面暂未开发","info")
+        } else if (nowMenu != '指南' && menuList[i].name == '指南') {
+            menu.onclick = function () {
+                window.location.href = window.BaseUrl + "/guide.html"
+            }
+        } else if (nowMenu != '资源' && menuList[i].name == '资源') {
+            menu.onclick = function () {
+                window.location.href = window.BaseUrl + "/resource.html"
             }
         }
     }

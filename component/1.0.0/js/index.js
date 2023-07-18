@@ -70,7 +70,7 @@ function $compentTabs(component) {
             tab.setAttribute('component', tabs[i].component)
             if (tabs[i].type === 'tab') {
                 tab.onclick = function () {
-                    let to = window.BaseUrl + '/1.0.0/component/' + tabs[i].component + '/'
+                    let to = window.BaseUrl + '/component/1.0.0/' + tabs[i].component + '.html'
                     if (component != tabs[i].component) {
                         window.location.href = to
                     }

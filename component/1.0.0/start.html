@@ -13,8 +13,8 @@
     <script src="../../../js/tools.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../css/index.css">
-    <link rel="stylesheet" href="../../index.css">
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
     <title>组件</title>
 </head>
 
@@ -23,12 +23,10 @@
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
-            <div class="title">安装</div>
-            <div class="tip">CDN</div>
-            <div class="introduce">目前可以通过下载 <span class="link" onclick="downloadJs()">littleApe-UI.js</span> 和 <span
-                    class="link" onclick="downloadCss()">littleApe-UI.css</span>
-                的方式来获取最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
-            </div>
+            <div class="title">快速上手</div>
+            <div class="introduce">本节将介绍如何在项目中使用 <span class="keyWords">littleApe-UI</span>。</div>
+            <div class="tip">引入 littleApe-UI</div>
+            <div class="introduce">你可以引入整个 littleApe-UI 组件。接下来将介绍如何引入完整的 littleApe-UI。</div>
         </div>
     </div>
 </body>
@@ -38,16 +36,8 @@
     // 初始化header
     $header("组件")
     // 初始化选项卡
-    $compentTabs('install')
+    $compentTabs('start')
     $animation()
-    // 下载 js
-    function downloadJs() {
-        window.open(window.BaseUrl + "/components/littleApe-ui.js", "littleApe-UI.js")
-    }
-    // 下载 css
-    function downloadCss() {
-        window.open(window.BaseUrl + "/components/littleApe-ui.css", "littleApe-UI.css")
-    }
 </script>
 <style>
 

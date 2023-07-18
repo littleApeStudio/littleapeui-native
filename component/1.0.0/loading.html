@@ -13,8 +13,8 @@
     <script src="../../../js/tools.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../css/index.css">
-    <link rel="stylesheet" href="../../index.css">
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
     <title>组件</title>
 </head>
 
@@ -23,35 +23,24 @@
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
-            <div class="title">button 按钮</div>
+            <div class="title">loading 加载</div>
             <div class="tip">组件说明</div>
-            <div class="introduce">常用的操作按钮。</div>
+            <div class="introduce">加载数据时显示动效。</div>
             <div class="tip">基础用法</div>
-            <div class="introduce">基础的按钮用法</div>
+            <div class="introduce">在网络请求或者其他操作时为避免用户未知情况下的等待，可增加交互体验。</div>
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button">默认按钮</button>
-                    </div>
-                    <div class="example">
-                        <button class="ape-button ape-button-success">成功按钮</button>
-                    </div>
-                    <div class="example">
-                        <button class="ape-button ape-button-warning">警告按钮</button>
-                    </div>
-                    <div class="example">
-                        <button class="ape-button ape-button-error">危险按钮</button>
-                    </div>
-                    <div class="example">
-                        <button class="ape-button ape-button-info">信息按钮</button>
+                        <button class="ape-button ape-button-plain" onclick="open1()">打开加载</button>
                     </div>
                 </div>
+            </div>
+            <div class="tip">自定义用法</div>
+            <div class="introduce">可自定义设置加载提示文本。</div>
+            <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button ape-button-plain-default">朴素按钮</button>
-                    </div>
-                    <div class="example">
-                        <button class="ape-button ape-button-plain">默认按钮</button>
+                        <button class="ape-button ape-button-plain" onclick="open1('我是自定义的提示文本')">打开自定义文本加载</button>
                     </div>
                 </div>
             </div>
@@ -64,8 +53,14 @@
     // 初始化header
     $header("组件")
     // 初始化选项卡
-    $compentTabs('button')
+    $compentTabs('loading')
     $animation()
+    function open1(e) {
+        $loading.show(e || null)
+        setTimeout(() => {
+            $loading.hide()
+        }, 5000);
+    }
 </script>
 <style>
 

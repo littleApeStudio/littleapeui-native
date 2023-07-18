@@ -13,8 +13,8 @@
     <script src="../../../js/tools.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="../../../css/index.css">
-    <link rel="stylesheet" href="../../index.css">
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
     <title>组件</title>
 </head>
 
@@ -23,24 +23,24 @@
     <div class="container">
         <div id="tabsBox" class="tabs-box"></div>
         <div id="content" class="content">
-            <div class="title">loading 加载</div>
+            <div class="title">input 输入框</div>
             <div class="tip">组件说明</div>
-            <div class="introduce">加载数据时显示动效。</div>
+            <div class="introduce">通过鼠标或键盘输入字符。</div>
             <div class="tip">基础用法</div>
-            <div class="introduce">在网络请求或者其他操作时为避免用户未知情况下的等待，可增加交互体验。</div>
+            <div class="introduce">基础的输入框用法</div>
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button ape-button-plain" onclick="open1()">打开加载</button>
+                        <input name="a" class="ape-input" placeholder="请输入内容"></input>
                     </div>
                 </div>
             </div>
-            <div class="tip">自定义用法</div>
-            <div class="introduce">可自定义设置加载提示文本。</div>
+            <div class="tip">基础用法</div>
+            <div class="introduce">多行输入框用法</div>
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button ape-button-plain" onclick="open1('我是自定义的提示文本')">打开自定义文本加载</button>
+                        <textarea name="b" class="ape-input ape-input-area" placeholder="请输入内容"></textarea>
                     </div>
                 </div>
             </div>
@@ -53,14 +53,8 @@
     // 初始化header
     $header("组件")
     // 初始化选项卡
-    $compentTabs('loading')
+    $compentTabs('input')
     $animation()
-    function open1(e) {
-        $loading.show(e || null)
-        setTimeout(() => {
-            $loading.hide()
-        }, 5000);
-    }
 </script>
 <style>
 
