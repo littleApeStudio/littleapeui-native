@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -34,6 +37,15 @@
                         <button class="ape-button ape-button-plain-default" onclick="open1()">打开消息提示</button>
                     </div>
                 </div>
+                <div id="code" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button ape-button-plain-default" onclick="open1()">打开消息提示&lt;/button></code>         
+<code>function open1() {
+    $message("这是一条消息提示。")
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control" class="examples-control"></div>
             </div>
             <div class="tip">不同状态</div>
             <div class="introduce">用来显示「成功、警告、错误、信息」类的操作反馈。</div>
@@ -52,6 +64,21 @@
                         <button class="ape-button ape-button-info" onclick="open2('info','信息')">信息</button>
                     </div>
                 </div>
+                <div id="code1" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button ape-button-success" onclick="open2('success','成功')">成功&lt;/button>
+&lt;button class="ape-button ape-button-warning" onclick="open2('warning','警告')">警告&lt;/button>
+&lt;button class="ape-button ape-button-error" onclick="open2('error','错误')">错误&lt;/button>
+&lt;button class="ape-button ape-button-info" onclick="open2('info','信息')">信息&lt;/button></code>                   
+<code>function open2(type, message) {
+    $message({
+        title: `这是一条 ${message} 消息`,
+        type: type
+    })
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control1" class="examples-control"></div>
             </div>
             <div class="tip">不同时长</div>
             <div class="introduce">动态控制message展示的时长。</div>
@@ -69,6 +96,21 @@
                         <button class="ape-button  ape-button-error" onclick="open3('error','错误',1000)">错误 1s</button>
                     </div>
                 </div>
+                <div id="code2" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button  ape-button-success" onclick="open3('success','成功',3000)">成功 3s&lt;/button>
+&lt;button class="ape-button  ape-button-warning" onclick="open3('warning','警告',2000)">警告2s&lt;/button>
+&lt;button class="ape-button  ape-button-error" onclick="open3('error','错误',1000)">错误 1s&lt;/button></code>            
+<code>function open3(type, message, duration) {
+    $message({
+        title: `这是一条 ${message} 消息`,
+        type: type,
+        duration: duration
+    })
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control2" class="examples-control"></div>
             </div>
         </div>
     </div>
@@ -100,6 +142,55 @@
             duration: duration
         })
     }
+
+
+    let code = document.getElementById("code")
+    let control = document.getElementById("control")
+    control.onclick = function () {
+        let show = code.getAttribute("show")
+        if (show && show == 'true') {
+            code.setAttribute("show", false)
+            code.style.gridTemplateRows = '0fr';
+            control.classList.remove("examples-control-expand")
+        } else {
+            code.setAttribute("show", true)
+            code.style.gridTemplateRows = '1fr';
+            control.classList.add("examples-control-expand")
+        }
+    }
+
+    let code1 = document.getElementById("code1")
+    let control1 = document.getElementById("control1")
+    control1.onclick = function () {
+        let show = code1.getAttribute("show")
+        if (show && show == 'true') {
+            code1.setAttribute("show", false)
+            code1.style.gridTemplateRows = '0fr';
+            control1.classList.remove("examples-control-expand")
+        } else {
+            code1.setAttribute("show", true)
+            code1.style.gridTemplateRows = '1fr';
+            control1.classList.add("examples-control-expand")
+        }
+    }
+
+    let code2 = document.getElementById("code2")
+    let control2 = document.getElementById("control2")
+    control2.onclick = function () {
+        let show = code2.getAttribute("show")
+        if (show && show == 'true') {
+            code2.setAttribute("show", false)
+            code2.style.gridTemplateRows = '0fr';
+            control2.classList.remove("examples-control-expand")
+        } else {
+            code2.setAttribute("show", true)
+            code2.style.gridTemplateRows = '1fr';
+            control2.classList.add("examples-control-expand")
+        }
+    }
+
+
+    hljs.highlightAll();
 </script>
 <style>
 

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -34,6 +37,12 @@
                         <input name="a" class="ape-input" placeholder="请输入内容"></input>
                     </div>
                 </div>
+                <div id="code" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;input class="ape-input" placeholder="请输入内容">&lt;/input></code></pre>
+                    </div>
+                </div>
+                <div id="control" class="examples-control"></div>
             </div>
             <div class="tip">基础用法</div>
             <div class="introduce">多行输入框用法</div>
@@ -43,6 +52,12 @@
                         <textarea name="b" class="ape-input ape-input-area" placeholder="请输入内容"></textarea>
                     </div>
                 </div>
+                <div id="code1" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;textarea class="ape-input ape-input-area" placeholder="请输入内容">&lt;/textarea></code></pre>
+                    </div>
+                </div>
+                <div id="control1" class="examples-control"></div>
             </div>
         </div>
     </div>
@@ -55,6 +70,39 @@
     // 初始化选项卡
     $compentTabs('input')
     $animation()
+
+
+    let code = document.getElementById("code")
+    let control = document.getElementById("control")
+    control.onclick = function () {
+        let show = code.getAttribute("show")
+        if (show && show == 'true') {
+            code.setAttribute("show", false)
+            code.style.gridTemplateRows = '0fr';
+            control.classList.remove("examples-control-expand")
+        } else {
+            code.setAttribute("show", true)
+            code.style.gridTemplateRows = '1fr';
+            control.classList.add("examples-control-expand")
+        }
+    }
+    let code1 = document.getElementById("code1")
+    let control1 = document.getElementById("control1")
+    control1.onclick = function () {
+        let show = code1.getAttribute("show")
+        if (show && show == 'true') {
+            code1.setAttribute("show", false)
+            code1.style.gridTemplateRows = '0fr';
+            control1.classList.remove("examples-control-expand")
+        } else {
+            code1.setAttribute("show", true)
+            code1.style.gridTemplateRows = '1fr';
+            control1.classList.add("examples-control-expand")
+        }
+    }
+
+
+    hljs.highlightAll();
 </script>
 <style>
 

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -52,6 +55,32 @@
                         </div>
                     </form>
                 </div>
+                <div id="code1" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;form class="ape-form" method="post" onsubmit="return form()">
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">账号&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" placeholder="请输入账号">
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">密码&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" placeholder="请输入密码">
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">验证码&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">&lt;/div>
+        &lt;div class="ape-contral">
+            &lt;button class="ape-button" type="submit">登录&lt;/button>
+            &lt;button class="ape-button ape-button-warning" type="reset">重置&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/form></code></pre>
+                    </div>
+                </div>
+                <div id="control1" class="examples-control"></div>
             </div>
             <div class="tip">高级表单</div>
             <div class="introduce">带验证码的表单</div>
@@ -82,6 +111,41 @@
                         </div>
                     </form>
                 </div>
+                <div id="code2" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;form class="ape-form" method="post" onsubmit="return form()">
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">账号&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" placeholder="请输入账号">
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">密码&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" placeholder="请输入密码">
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">验证码&lt;span>*&lt;/span>&lt;/div>
+        &lt;input class="ape-input" id="code" type="text" placeholder="请输入验证码">
+        &lt;div class="ape-code">
+            &lt;img id="code-img" onclick="makeCode()">
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="ape-form-input">
+        &lt;div class="ape-label">&lt;/div>
+        &lt;div class="ape-contral">
+            &lt;button class="ape-button" type="submit">登录&lt;/button>
+            &lt;button class="ape-button ape-button-plain" type="button">注册&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/form></code>
+<code>// 获取验证码
+function makeCode() {
+    let code_info = $createCode()
+    $getEle("code-img").src = code_info.codeImg
+    result = code_info.result
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control2" class="examples-control"></div>
             </div>
         </div>
     </div>
@@ -105,6 +169,40 @@
     function form() {
         return false
     }
+
+
+    let code1 = document.getElementById("code1")
+    let control1 = document.getElementById("control1")
+    control1.onclick = function () {
+        let show = code1.getAttribute("show")
+        if (show && show == 'true') {
+            code1.setAttribute("show", false)
+            code1.style.gridTemplateRows = '0fr';
+            control1.classList.remove("examples-control-expand")
+        } else {
+            code1.setAttribute("show", true)
+            code1.style.gridTemplateRows = '1fr';
+            control1.classList.add("examples-control-expand")
+        }
+    }
+
+    let code2 = document.getElementById("code2")
+    let control2 = document.getElementById("control2")
+    control2.onclick = function () {
+        let show = code2.getAttribute("show")
+        if (show && show == 'true') {
+            code2.setAttribute("show", false)
+            code2.style.gridTemplateRows = '0fr';
+            control2.classList.remove("examples-control-expand")
+        } else {
+            code2.setAttribute("show", true)
+            code2.style.gridTemplateRows = '1fr';
+            control2.classList.add("examples-control-expand")
+        }
+    }
+
+
+    hljs.highlightAll();
 </script>
 <style>
 

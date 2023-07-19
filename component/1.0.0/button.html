@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -55,24 +58,15 @@
                     </div>
                 </div>
                 <div id="code" class="examples-code">
-                    <div style="overflow: hidden;">
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
-                        <p>123456</p>
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button">默认按钮&lt;/button>
+&lt;button class="ape-button ape-button-success">成功按钮&lt;/button>
+&lt;button class="ape-button ape-button-warning">警告按钮&lt;/button>
+&lt;button class="ape-button ape-button-error">危险按钮&lt;/button>
+&lt;button class="ape-button ape-button-info">信息按钮&lt;/button>
+
+&lt;button class="ape-button ape-button-plain-default">朴素按钮&lt;/button>
+&lt;button class="ape-button ape-button-plain">默认按钮&lt;/button></code></pre>
                     </div>
                 </div>
                 <div id="control" class="examples-control"></div>
@@ -91,21 +85,19 @@
 
     let code = document.getElementById("code")
     let control = document.getElementById("control")
-
     control.onclick = function () {
         let show = code.getAttribute("show")
         if (show && show == 'true') {
             code.setAttribute("show", false)
-            // code.style.height = '0px'
             code.style.gridTemplateRows = '0fr';
             control.classList.remove("examples-control-expand")
         } else {
             code.setAttribute("show", true)
             code.style.gridTemplateRows = '1fr';
-            // code.style.height = '500px'
             control.classList.add("examples-control-expand")
         }
     }
+    hljs.highlightAll();
 </script>
 <style>
 

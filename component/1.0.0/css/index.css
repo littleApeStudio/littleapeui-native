@@ -183,11 +183,29 @@
     height: max-content;
 }
 
+.code {
+    margin: 15px 0;
+    padding: 0 15px;
+    width: 100%;
+    height: max-content;
+    background: #fafafa;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #eaeefb;
+}
+
 .examples-code {
+    margin-top: 15px;
+    padding: 0 15px;
     display: grid;
     grid-template-rows: 0fr;
     background: #fafafa;
-    transition: all 0.35s;
+    transition: all 0.35s ease-in-out;
+    box-sizing: border-box;
+}
+
+.examples-code-area {
+    overflow: hidden;
 }
 
 .examples-control {

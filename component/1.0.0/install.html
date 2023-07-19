@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -29,8 +32,15 @@
                     class="link" onclick="downloadCss()">littleApe-UI.css</span>
                 的方式来获取最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
             </div>
+            <div class="code">
+                <pre><code>&lt;!-- 引入样式 -->
+&lt;link rel="stylesheet" href="./components/littleApe-ui.css">
+
+&lt;!-- 引入组件库 -->
+&lt;script src="./components/littleApe-ui.js">&lt;/script></code></pre>
+            </div>
+            <div class="introduce">引入 css 和 JavaScript 文件后便可以开始使用 littleApe-UI 了。</div>
         </div>
-    </div>
 </body>
 
 </html>
@@ -48,6 +58,7 @@
     function downloadCss() {
         window.open(window.BaseUrl + "/components/littleApe-ui.css", "littleApe-UI.css")
     }
+    hljs.highlightAll();
 </script>
 <style>
 

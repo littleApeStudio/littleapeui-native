@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../../css/index.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="../../hightlight/default.min.css">
+    <script src="../../hightlight/highlight.min.js"></script>
     <title>组件</title>
 </head>
 
@@ -34,15 +37,39 @@
                         <button class="ape-button ape-button-plain" onclick="open1()">打开加载</button>
                     </div>
                 </div>
+                <div id="code" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button ape-button-plain" onclick="open1()">打开加载&lt;/button></code>
+<code>function open1() {
+    $loading.show()
+    setTimeout(() => {
+        $loading.hide()
+    }, 5000);
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control" class="examples-control"></div>
             </div>
             <div class="tip">自定义用法</div>
             <div class="introduce">可自定义设置加载提示文本。</div>
             <div class="examples">
                 <div class="example-module">
                     <div class="example">
-                        <button class="ape-button ape-button-plain" onclick="open1('我是自定义的提示文本')">打开自定义文本加载</button>
+                        <button class="ape-button ape-button-plain" onclick="open2('我是自定义的提示文本')">打开自定义文本加载</button>
                     </div>
                 </div>
+                <div id="code1" class="examples-code">
+                    <div class="examples-code-area">
+                        <pre><code>&lt;button class="ape-button ape-button-plain" onclick="open1('我是自定义的提示文本')">打开自定义文本加载&lt;/button></code>
+<code>function open2(e) {
+    $loading.show(e)
+    setTimeout(() => {
+        $loading.hide()
+    }, 5000);
+}</code></pre>
+                    </div>
+                </div>
+                <div id="control1" class="examples-control"></div>
             </div>
         </div>
     </div>
@@ -61,6 +88,40 @@
             $loading.hide()
         }, 5000);
     }
+
+
+    let code = document.getElementById("code")
+    let control = document.getElementById("control")
+    control.onclick = function () {
+        let show = code.getAttribute("show")
+        if (show && show == 'true') {
+            code.setAttribute("show", false)
+            code.style.gridTemplateRows = '0fr';
+            control.classList.remove("examples-control-expand")
+        } else {
+            code.setAttribute("show", true)
+            code.style.gridTemplateRows = '1fr';
+            control.classList.add("examples-control-expand")
+        }
+    }
+
+let code1 = document.getElementById("code1")
+let control1 = document.getElementById("control1")
+control1.onclick = function () {
+    let show = code1.getAttribute("show")
+    if (show && show == 'true') {
+        code1.setAttribute("show", false)
+        code1.style.gridTemplateRows = '0fr';
+        control1.classList.remove("examples-control-expand")
+    } else {
+        code1.setAttribute("show", true)
+        code1.style.gridTemplateRows = '1fr';
+        control1.classList.add("examples-control-expand")
+    }
+}
+
+
+    hljs.highlightAll();
 </script>
 <style>
 
