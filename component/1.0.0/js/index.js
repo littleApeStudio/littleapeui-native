@@ -117,3 +117,35 @@ function $animation() {
         }
     }
 }
+
+// 底部导航渲染
+function $navigator(last, next) {
+    let content = document.getElementById("content")
+    let navigatorTo = document.createElement("div")
+    navigatorTo.classList.add("navigatorTo")
+    let navigatorToLast = document.createElement("div")
+    if (last.name) {
+        navigatorToLast.classList.add("navigatorTo-last")
+    }
+    let navigatorToNext = document.createElement("div")
+    if (next.name) {
+        navigatorToNext.classList.add("navigatorTo-next")
+    }
+    navigatorToLast.innerHTML = last.name || ""
+    navigatorToNext.innerHTML = next.name || ""
+    content.appendChild(navigatorTo)
+    navigatorTo.appendChild(navigatorToLast)
+    navigatorTo.appendChild(navigatorToNext)
+    if (last.name) {
+        navigatorToLast.onclick = function () {
+            let to = window.BaseUrl + '/component/1.0.0/' + last.component + '.html'
+            window.location.href = to
+        }
+    }
+    if (next.name) {
+        navigatorToNext.onclick = function () {
+            let to = window.BaseUrl + '/component/1.0.0/' + next.component + '.html'
+            window.location.href = to
+        }
+    }
+}

@@ -153,6 +153,65 @@
                 </div>
                 <div id="control4" class="examples-control"></div>
             </div>
+            <div class="tip">属性</div>
+            <table class="attributes">
+                <tr class="thead">
+                    <td>参数</td>
+                    <td>说明</td>
+                    <td>类型</td>
+                    <td>可选值</td>
+                    <td>默认值</td>
+                </tr>
+                <tr class="tbody">
+                    <td>title</td>
+                    <td>弹窗标题</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>——</td>
+                </tr>
+                <tr class="tbody">
+                    <td>type</td>
+                    <td>类型</td>
+                    <td>string</td>
+                    <td>success/warning/error</td>
+                    <td>success</td>
+                </tr>
+                <tr class="tbody">
+                    <td>content</td>
+                    <td>弹窗内容</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>——</td>
+                </tr>
+                <tr class="tbody">
+                    <td>confirmText</td>
+                    <td>确定按钮文字</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>确定</td>
+                </tr>
+                <tr class="tbody">
+                    <td>cansoleText</td>
+                    <td>取消按钮文字</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>取消</td>
+                </tr>
+                <tr class="tbody">
+                    <td>showCansole</td>
+                    <td>是否显示取消按钮</td>
+                    <td>boolean</td>
+                    <td>——</td>
+                    <td>true</td>
+                </tr>
+                <tr class="tbody">
+                    <td>showClose</td>
+                    <td>是否显示关闭按钮</td>
+                    <td>boolean</td>
+                    <td>——</td>
+                    <td>true</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
@@ -164,6 +223,14 @@
     // 初始化选项卡
     $compentTabs('msgbox')
     $animation()
+    let last = {
+        name: "message 消息提示",
+        component: 'message'
+    }
+    let next = {}
+    $navigator(last, next)
+
+
     // 用法一
     function open1() {
         $msgbox({

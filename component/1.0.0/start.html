@@ -29,7 +29,8 @@
             <div class="title">快速上手</div>
             <div class="introduce">本节将介绍如何在项目中使用 <span class="keyWords">littleApe-UI</span>。</div>
             <div class="tip">示例--普通 dom 元素</div>
-            <div class="introduce">你可以引入整个 littleApe-UI 组件。然后只需要给对应的 dom 元素赋予对应的 class 类名即可，该示例将展示如何引用 littleApeUI 的警告按钮。</div>
+            <div class="introduce">你可以引入整个 littleApe-UI 组件。然后只需要给对应的 dom 元素赋予对应的 class 类名即可，该示例将展示如何引用 littleApeUI
+                的警告按钮。</div>
             <div class="code">
                 <pre><code>&lt;body>
     &lt;button class="ape-button ape-button-warning">警告按钮&lt;/button>
@@ -67,6 +68,15 @@
     // 初始化选项卡
     $compentTabs('start')
     $animation()
+    let last = {
+        name: "安装",
+        component: 'install'
+    }
+    let next = {
+        name: "button 按钮",
+        component: 'button'
+    }
+    $navigator(last, next)
     hljs.highlightAll();
 </script>
 <style>

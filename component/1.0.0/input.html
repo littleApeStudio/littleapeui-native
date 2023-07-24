@@ -59,6 +59,23 @@
                 </div>
                 <div id="control1" class="examples-control"></div>
             </div>
+            <div class="tip">属性</div>
+            <table class="attributes">
+                <tr class="thead">
+                    <td>参数</td>
+                    <td>说明</td>
+                    <td>类型</td>
+                    <td>可选值</td>
+                    <td>默认值</td>
+                </tr>
+                <tr class="tbody">
+                    <td>class</td>
+                    <td>class 类名</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>——</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
@@ -70,6 +87,15 @@
     // 初始化选项卡
     $compentTabs('input')
     $animation()
+    let last = {
+        name: "button 按钮",
+        component: 'button'
+    }
+    let next = {
+        name: "form 表单",
+        component: 'form'
+    }
+    $navigator(last, next)
 
 
     let code = document.getElementById("code")

@@ -147,6 +147,23 @@ function makeCode() {
                 </div>
                 <div id="control2" class="examples-control"></div>
             </div>
+            <div class="tip">属性</div>
+            <table class="attributes">
+                <tr class="thead">
+                    <td>参数</td>
+                    <td>说明</td>
+                    <td>类型</td>
+                    <td>可选值</td>
+                    <td>默认值</td>
+                </tr>
+                <tr class="tbody">
+                    <td>class</td>
+                    <td>class 类名</td>
+                    <td>string</td>
+                    <td>——</td>
+                    <td>——</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
@@ -158,6 +175,15 @@ function makeCode() {
     // 初始化选项卡
     $compentTabs('form')
     $animation()
+    let last = {
+        name: "input 输入框",
+        component: 'input'
+    }
+    let next = {
+        name: "loading 加载",
+        component: 'loading'
+    }
+    $navigator(last, next)
     // 获取验证码
     function makeCode() {
         let code_info = $createCode()
