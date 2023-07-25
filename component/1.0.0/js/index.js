@@ -124,4 +124,34 @@ function $navigator() {
     let navigatorTo = document.createElement("div")
     navigatorTo.classList.add("navigatorTo")
     content.appendChild(navigatorTo)
+    // 滚动条监听
+    content.addEventListener('scroll', function () {
+        let scrollTop = content.scrollTop
+        if (scrollTop > 100) {
+            let toTop = document.getElementById("toTop")
+            if (!toTop) {
+                toTop = document.createElement("div")
+                toTop.classList.add("toTop")
+                toTop.id = "toTop"
+                content.appendChild(toTop)
+                setTimeout(() => {
+                    toTop.style.opacity = 1
+                }, 100);
+                toTop.onclick = function () {
+                    content.scrollTop = 0
+                }
+            }
+        } else {
+            let toTop = document.getElementById("toTop")
+            if (toTop) {
+                toTop.style.opacity = 0
+                setTimeout(() => {
+                    let toTop1 = document.getElementById("toTop")
+                    if (toTop1) {
+                        content.removeChild(toTop1)
+                    }
+                }, 200);
+            }
+        }
+    })
 }
