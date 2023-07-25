@@ -50,12 +50,7 @@
     // 初始化选项卡
     $compentTabs('install')
     $animation()
-    let last = {}
-    let next = {
-        name: "快速上手",
-        component: 'start'
-    }
-    $navigator(last, next)
+    $navigator()
     // 下载 js
     function downloadJs() {
         window.open(window.BaseUrl + "/components/littleApe-ui.js", "littleApe-UI.js")

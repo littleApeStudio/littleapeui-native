@@ -175,15 +175,7 @@ function makeCode() {
     // 初始化选项卡
     $compentTabs('form')
     $animation()
-    let last = {
-        name: "input 输入框",
-        component: 'input'
-    }
-    let next = {
-        name: "loading 加载",
-        component: 'loading'
-    }
-    $navigator(last, next)
+    $navigator()
     // 获取验证码
     function makeCode() {
         let code_info = $createCode()
