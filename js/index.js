@@ -1,5 +1,5 @@
-window.BaseUrl = "http://127.0.0.1:5500"
-// window.BaseUrl="https://littleape-native.apestudio.asia"
+// window.BaseUrl = "http://127.0.0.1:5500"
+window.BaseUrl="https://native.components.apestudio.cn/"
 // 渲染header
 function $header(nowMenu) {
     let menuList = [
